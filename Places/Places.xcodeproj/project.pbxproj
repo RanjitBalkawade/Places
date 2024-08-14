@@ -21,6 +21,7 @@
 		CD43250D2C6D1A240030FE73 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43250C2C6D1A240030FE73 /* Factory.swift */; };
 		CD43251F2C6D26A80030FE73 /* LocationsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43251E2C6D26A80030FE73 /* LocationsGetResponse.swift */; };
 		CD4325212C6D26C00030FE73 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325202C6D26C00030FE73 /* Location.swift */; };
+		CD4325252C6D27A10030FE73 /* LocationsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325242C6D27A10030FE73 /* LocationsGetService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CD43250C2C6D1A240030FE73 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		CD43251E2C6D26A80030FE73 /* LocationsGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetResponse.swift; sourceTree = "<group>"; };
 		CD4325202C6D26C00030FE73 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		CD4325242C6D27A10030FE73 /* LocationsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		CD4324CF2C6D16BF0030FE73 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				CD4325222C6D27770030FE73 /* Network */,
 				CD43251D2C6D26750030FE73 /* Model */,
 				CD4325062C6D18E10030FE73 /* Views */,
 				CD4325012C6D181D0030FE73 /* Coordinator */,
@@ -180,6 +183,22 @@
 				CD4325202C6D26C00030FE73 /* Location.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CD4325222C6D27770030FE73 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CD4325232C6D277E0030FE73 /* Services */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CD4325232C6D277E0030FE73 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CD4325242C6D27A10030FE73 /* LocationsGetService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +340,7 @@
 				CD4325032C6D18550030FE73 /* MainCoordinatorProtocol.swift in Sources */,
 				CD4324D12C6D16BF0030FE73 /* AppDelegate.swift in Sources */,
 				CD43250D2C6D1A240030FE73 /* Factory.swift in Sources */,
+				CD4325252C6D27A10030FE73 /* LocationsGetService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
