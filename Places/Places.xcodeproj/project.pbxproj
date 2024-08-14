@@ -22,6 +22,8 @@
 		CD43251F2C6D26A80030FE73 /* LocationsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43251E2C6D26A80030FE73 /* LocationsGetResponse.swift */; };
 		CD4325212C6D26C00030FE73 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325202C6D26C00030FE73 /* Location.swift */; };
 		CD4325252C6D27A10030FE73 /* LocationsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325242C6D27A10030FE73 /* LocationsGetService.swift */; };
+		CD4325272C6D28D10030FE73 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325262C6D28D10030FE73 /* PlacesViewModel.swift */; };
+		CD43252A2C6D299B0030FE73 /* MockLocationsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325292C6D299B0030FE73 /* MockLocationsGetService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		CD43251E2C6D26A80030FE73 /* LocationsGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetResponse.swift; sourceTree = "<group>"; };
 		CD4325202C6D26C00030FE73 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CD4325242C6D27A10030FE73 /* LocationsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetService.swift; sourceTree = "<group>"; };
+		CD4325262C6D28D10030FE73 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
+		CD4325292C6D299B0030FE73 /* MockLocationsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationsGetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		CD4324CF2C6D16BF0030FE73 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				CD4325282C6D29770030FE73 /* PreviewMocks */,
 				CD4325222C6D27770030FE73 /* Network */,
 				CD43251D2C6D26750030FE73 /* Model */,
 				CD4325062C6D18E10030FE73 /* Views */,
@@ -172,6 +177,7 @@
 			children = (
 				CD4325082C6D19790030FE73 /* PlacesViewController.swift */,
 				CD43250A2C6D19B10030FE73 /* PlacesView.swift */,
+				CD4325262C6D28D10030FE73 /* PlacesViewModel.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -199,6 +205,14 @@
 				CD4325242C6D27A10030FE73 /* LocationsGetService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		CD4325282C6D29770030FE73 /* PreviewMocks */ = {
+			isa = PBXGroup;
+			children = (
+				CD4325292C6D299B0030FE73 /* MockLocationsGetService.swift */,
+			);
+			path = PreviewMocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,9 +348,11 @@
 				CD4325212C6D26C00030FE73 /* Location.swift in Sources */,
 				CD43251F2C6D26A80030FE73 /* LocationsGetResponse.swift in Sources */,
 				CD43250B2C6D19B10030FE73 /* PlacesView.swift in Sources */,
+				CD43252A2C6D299B0030FE73 /* MockLocationsGetService.swift in Sources */,
 				CD4324D52C6D16BF0030FE73 /* ViewController.swift in Sources */,
 				CD4325052C6D18680030FE73 /* MainCoordinator.swift in Sources */,
 				CD4325092C6D19790030FE73 /* PlacesViewController.swift in Sources */,
+				CD4325272C6D28D10030FE73 /* PlacesViewModel.swift in Sources */,
 				CD4325032C6D18550030FE73 /* MainCoordinatorProtocol.swift in Sources */,
 				CD4324D12C6D16BF0030FE73 /* AppDelegate.swift in Sources */,
 				CD43250D2C6D1A240030FE73 /* Factory.swift in Sources */,

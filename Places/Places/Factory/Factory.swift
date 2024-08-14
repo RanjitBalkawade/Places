@@ -14,4 +14,7 @@ class Factory {
         MainCoordinator(navigationController: UINavigationController())
     }
     
+    static func locationsGetService() -> LocationsGetServiceProtocol {
+        LocationsGetService()
+    }
 }

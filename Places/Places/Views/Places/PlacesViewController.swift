@@ -10,8 +10,8 @@ import SwiftUI
 
 class PlacesViewController: UIHostingController<PlacesView> {
     
-    init() {
-        super.init(rootView: PlacesView())
+    init(_ viewModel: PlacesViewModel) {
+        super.init(rootView: PlacesView(viewModel: viewModel))
     }
     
     @available(*, unavailable)

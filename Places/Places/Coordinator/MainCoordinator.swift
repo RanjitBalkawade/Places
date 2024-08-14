@@ -22,7 +22,9 @@ class MainCoordinator: MainCoordinatorProtocol {
     // MARK: - Public methods
     
     func start() {
-        navigationController.pushViewController(PlacesViewController(), animated: false)
+        let viewModel = PlacesViewModel(service: Factory.locationsGetService())
+        navigationController.pushViewController(PlacesViewController(viewModel), animated: false)
+
     }
     
 }
