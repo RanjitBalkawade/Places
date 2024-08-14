@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlacesView: View {
-    @StateObject var viewModel: PlacesViewModel
+    @ObservedObject var viewModel: PlacesViewModel
     
     var body: some View {
         VStack {
@@ -20,11 +20,21 @@ struct PlacesView: View {
                 case .loading:
                     loadingView
             }
+        }.task {
+            await viewModel.loadData()
         }
     }
     
     private var successView: some View {
-        Text("Success")
+        List {
+            if let viewModels = viewModel.placeItemViewModels {
+                Section(header: Text("Locations")) {
+                    ForEach(viewModels) {
+                        Text($0.name)
+                    }
+                }
+            }
+        }
     }
     
     private var failureView: some View {

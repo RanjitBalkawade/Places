@@ -24,6 +24,7 @@
 		CD4325252C6D27A10030FE73 /* LocationsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325242C6D27A10030FE73 /* LocationsGetService.swift */; };
 		CD4325272C6D28D10030FE73 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325262C6D28D10030FE73 /* PlacesViewModel.swift */; };
 		CD43252A2C6D299B0030FE73 /* MockLocationsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325292C6D299B0030FE73 /* MockLocationsGetService.swift */; };
+		CD43252C2C6D3A720030FE73 /* PlaceItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43252B2C6D3A720030FE73 /* PlaceItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		CD4325242C6D27A10030FE73 /* LocationsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetService.swift; sourceTree = "<group>"; };
 		CD4325262C6D28D10030FE73 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		CD4325292C6D299B0030FE73 /* MockLocationsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationsGetService.swift; sourceTree = "<group>"; };
+		CD43252B2C6D3A720030FE73 /* PlaceItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				CD4325082C6D19790030FE73 /* PlacesViewController.swift */,
 				CD43250A2C6D19B10030FE73 /* PlacesView.swift */,
 				CD4325262C6D28D10030FE73 /* PlacesViewModel.swift */,
+				CD43252B2C6D3A720030FE73 /* PlaceItemViewModel.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				CD4324D52C6D16BF0030FE73 /* ViewController.swift in Sources */,
 				CD4325052C6D18680030FE73 /* MainCoordinator.swift in Sources */,
 				CD4325092C6D19790030FE73 /* PlacesViewController.swift in Sources */,
+				CD43252C2C6D3A720030FE73 /* PlaceItemViewModel.swift in Sources */,
 				CD4325272C6D28D10030FE73 /* PlacesViewModel.swift in Sources */,
 				CD4325032C6D18550030FE73 /* MainCoordinatorProtocol.swift in Sources */,
 				CD4324D12C6D16BF0030FE73 /* AppDelegate.swift in Sources */,

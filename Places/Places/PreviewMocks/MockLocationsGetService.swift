@@ -9,10 +9,10 @@ import Foundation
 
 class MockLocationsGetService: LocationsGetServiceProtocol {
     
-    func getLocations() async throws -> LocationsGetResponse {
+    func getLocations() async throws -> [Location] {
         let location1 = Location(name: "Amsterdam", lat: 1.2333, long: 2.1233)
         let location2 = Location(name: "Mumbai", lat: 2.2333, long: 3.1233)
-        return LocationsGetResponse(locations: [location1, location2])
+        return [location1, location2]
     }
     
 }

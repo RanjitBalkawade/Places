@@ -15,6 +15,6 @@ class Factory {
     }
     
     static func locationsGetService() -> LocationsGetServiceProtocol {
-        LocationsGetService()
+        MockLocationsGetService()
     }
 }

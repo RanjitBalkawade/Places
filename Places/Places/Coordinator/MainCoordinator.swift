@@ -24,7 +24,6 @@ class MainCoordinator: MainCoordinatorProtocol {
     func start() {
         let viewModel = PlacesViewModel(service: Factory.locationsGetService())
         navigationController.pushViewController(PlacesViewController(viewModel), animated: false)
-
     }
     
 }

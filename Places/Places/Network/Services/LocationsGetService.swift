@@ -8,14 +8,14 @@
 import Foundation
 
 protocol LocationsGetServiceProtocol {
-    func getLocations() async throws -> LocationsGetResponse
+    func getLocations() async throws -> [Location]
 }
 
 extension LocationsGetService: LocationsGetServiceProtocol {}
 
 class LocationsGetService {
     
-    func getLocations() async throws -> LocationsGetResponse {
+    func getLocations() async throws -> [Location] {
         fatalError()
     }
 }
