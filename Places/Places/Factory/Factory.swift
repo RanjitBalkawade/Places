@@ -15,6 +15,6 @@ class Factory {
     }
     
     static func locationsGetService() -> LocationsGetServiceProtocol {
-        MockLocationsGetService()
+        LocationsGetService(session: URLSession.shared, urlString: Configuration.API.baseUrl)
     }
 }

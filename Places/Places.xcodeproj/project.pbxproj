@@ -10,7 +10,6 @@
 		CD4324D12C6D16BF0030FE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324D02C6D16BF0030FE73 /* AppDelegate.swift */; };
 		CD4324DA2C6D16C10030FE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4324D92C6D16C10030FE73 /* Assets.xcassets */; };
 		CD4324DD2C6D16C10030FE73 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CD4324DC2C6D16C10030FE73 /* Base */; };
-		CD4324E82C6D16C10030FE73 /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324E72C6D16C10030FE73 /* PlacesTests.swift */; };
 		CD4324F22C6D16C10030FE73 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324F12C6D16C10030FE73 /* PlacesUITests.swift */; };
 		CD4324F42C6D16C10030FE73 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324F32C6D16C10030FE73 /* PlacesUITestsLaunchTests.swift */; };
 		CD4325032C6D18550030FE73 /* MainCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325022C6D18550030FE73 /* MainCoordinatorProtocol.swift */; };
@@ -28,6 +27,10 @@
 		CD4325312C6E28620030FE73 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325302C6E28620030FE73 /* AddLocationViewController.swift */; };
 		CD4325332C6E28740030FE73 /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325322C6E28740030FE73 /* AddLocationView.swift */; };
 		CD4325352C6E288B0030FE73 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325342C6E288B0030FE73 /* AddLocationViewModel.swift */; };
+		CD43256F2C6E7C940030FE73 /* GetServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43256E2C6E7C940030FE73 /* GetServiceProtocol.swift */; };
+		CD4325712C6E80330030FE73 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325702C6E80330030FE73 /* Configuration.swift */; };
+		CD4325742C6E89C40030FE73 /* LocationsGetServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */; };
+		CD4325772C6E8A390030FE73 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +57,6 @@
 		CD4324DC2C6D16C10030FE73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD4324DE2C6D16C10030FE73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD4324E32C6D16C10030FE73 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD4324E72C6D16C10030FE73 /* PlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTests.swift; sourceTree = "<group>"; };
 		CD4324ED2C6D16C10030FE73 /* PlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4324F12C6D16C10030FE73 /* PlacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesUITests.swift; sourceTree = "<group>"; };
 		CD4324F32C6D16C10030FE73 /* PlacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -73,6 +75,10 @@
 		CD4325302C6E28620030FE73 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		CD4325322C6E28740030FE73 /* AddLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView.swift; sourceTree = "<group>"; };
 		CD4325342C6E288B0030FE73 /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
+		CD43256E2C6E7C940030FE73 /* GetServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServiceProtocol.swift; sourceTree = "<group>"; };
+		CD4325702C6E80330030FE73 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetServiceTests.swift; sourceTree = "<group>"; };
+		CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 				CD4325002C6D18040030FE73 /* Factory */,
 				CD4325282C6D29770030FE73 /* PreviewMocks */,
 				CD4324D02C6D16BF0030FE73 /* AppDelegate.swift */,
+				CD4325702C6E80330030FE73 /* Configuration.swift */,
 				CD4324D92C6D16C10030FE73 /* Assets.xcassets */,
 				CD4324DB2C6D16C10030FE73 /* LaunchScreen.storyboard */,
 				CD4324DE2C6D16C10030FE73 /* Info.plist */,
@@ -140,7 +147,8 @@
 		CD4324E62C6D16C10030FE73 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
-				CD4324E72C6D16C10030FE73 /* PlacesTests.swift */,
+				CD4325752C6E8A250030FE73 /* Mock */,
+				CD4325722C6E89450030FE73 /* Network */,
 			);
 			path = PlacesTests;
 			sourceTree = "<group>";
@@ -212,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				CD4325242C6D27A10030FE73 /* LocationsGetService.swift */,
+				CD43256E2C6E7C940030FE73 /* GetServiceProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,6 +242,22 @@
 				CD4325342C6E288B0030FE73 /* AddLocationViewModel.swift */,
 			);
 			path = AddLocation;
+			sourceTree = "<group>";
+		};
+		CD4325722C6E89450030FE73 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CD4325752C6E8A250030FE73 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +331,7 @@
 					};
 					CD4324E22C6D16C10030FE73 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 						TestTargetID = CD4324CC2C6D16BF0030FE73;
 					};
 					CD4324EC2C6D16C10030FE73 = {
@@ -374,8 +400,10 @@
 				CD4325352C6E288B0030FE73 /* AddLocationViewModel.swift in Sources */,
 				CD4325312C6E28620030FE73 /* AddLocationViewController.swift in Sources */,
 				CD4325092C6D19790030FE73 /* PlacesViewController.swift in Sources */,
+				CD43256F2C6E7C940030FE73 /* GetServiceProtocol.swift in Sources */,
 				CD43252C2C6D3A720030FE73 /* PlaceItemViewModel.swift in Sources */,
 				CD4325272C6D28D10030FE73 /* PlacesViewModel.swift in Sources */,
+				CD4325712C6E80330030FE73 /* Configuration.swift in Sources */,
 				CD4325032C6D18550030FE73 /* MainCoordinatorProtocol.swift in Sources */,
 				CD4324D12C6D16BF0030FE73 /* AppDelegate.swift in Sources */,
 				CD4325332C6E28740030FE73 /* AddLocationView.swift in Sources */,
@@ -388,7 +416,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4324E82C6D16C10030FE73 /* PlacesTests.swift in Sources */,
+				CD4325742C6E89C40030FE73 /* LocationsGetServiceTests.swift in Sources */,
+				CD4325772C6E8A390030FE73 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

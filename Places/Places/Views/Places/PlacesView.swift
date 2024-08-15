@@ -20,7 +20,8 @@ struct PlacesView: View {
                 case .loading:
                     loadingView
             }
-        }.task {
+        }
+        .task {
             await viewModel.loadData()
         }
         .refreshable {

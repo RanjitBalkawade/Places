@@ -18,7 +18,6 @@ class PlacesViewModel: ObservableObject {
     
     @Published var viewState: ViewState = .loading
 
-    
     var placeItemViewModels: [PlaceItemViewModel] {
         getPlaceItemViewModels(locations: locations)
     }
@@ -26,8 +25,7 @@ class PlacesViewModel: ObservableObject {
     var userDefinedPlaceItemViewModels: [PlaceItemViewModel] {
         getPlaceItemViewModels(locations: userDefinedLocations)
     }
-    
-    private var isLoading: Bool = false
+
     private let service: LocationsGetServiceProtocol
     private let coordinator: MainCoordinatorProtocol
     private var locations: [Location] = []
@@ -49,11 +47,6 @@ class PlacesViewModel: ObservableObject {
     //MARK: - Internal methods
     
     func loadData() async {
-        guard isLoading == false else {
-            return
-        }
-        isLoading = true
-        
         await MainActor.run {
             viewState = .loading
         }
