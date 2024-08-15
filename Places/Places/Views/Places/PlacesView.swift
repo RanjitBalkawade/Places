@@ -23,17 +23,34 @@ struct PlacesView: View {
         }.task {
             await viewModel.loadData()
         }
+        .refreshable {
+            await viewModel.loadData()
+        }
     }
     
     private var successView: some View {
-        List {
-            if let viewModels = viewModel.placeItemViewModels {
-                Section(header: Text("Locations")) {
-                    ForEach(viewModels) {
-                        Text($0.name)
+        VStack {
+            List {
+                if viewModel.placeItemViewModels.isEmpty == false {
+                    Section(header: Text("Locations")) {
+                        ForEach(viewModel.placeItemViewModels) {
+                            Text($0.name)
+                        }
+                    }
+                }
+                
+                if viewModel.userDefinedPlaceItemViewModels.isEmpty == false {
+                    Section(header: Text("User defined locations")) {
+                        ForEach(viewModel.userDefinedPlaceItemViewModels) {
+                            Text($0.name)
+                        }
                     }
                 }
             }
+            Button(
+                action: { viewModel.showAddLocation() },
+                label: { Text("Add location").padding() }
+            )
         }
     }
     
@@ -47,6 +64,6 @@ struct PlacesView: View {
 }
 
 #Preview {
-    let viewModel = PlacesViewModel(service: MockLocationsGetService())
+    let viewModel = PlacesViewModel(service: MockLocationsGetService(), coordinator: MockMainCoordinator())
     return PlacesView(viewModel: viewModel)
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class PlacesViewModel: ObservableObject {
     
@@ -16,33 +17,47 @@ class PlacesViewModel: ObservableObject {
     }
     
     @Published var viewState: ViewState = .loading
+
     
-    var placeItemViewModels: [PlaceItemViewModel]? {
-        locations?.filter {
-            $0.name != nil
-        }
-        .map {
-            PlaceItemViewModel(location: $0)
-        }
+    var placeItemViewModels: [PlaceItemViewModel] {
+        getPlaceItemViewModels(locations: locations)
     }
     
-    private let service: LocationsGetServiceProtocol
-    private var locations: [Location]?
+    var userDefinedPlaceItemViewModels: [PlaceItemViewModel] {
+        getPlaceItemViewModels(locations: userDefinedLocations)
+    }
     
-    init(service: LocationsGetServiceProtocol) {
+    private var isLoading: Bool = false
+    private let service: LocationsGetServiceProtocol
+    private let coordinator: MainCoordinatorProtocol
+    private var locations: [Location] = []
+    @Published private var userDefinedLocations: [Location] = []
+    
+    init(service: LocationsGetServiceProtocol, coordinator: MainCoordinatorProtocol) {
         self.service = service
+        self.coordinator = coordinator
+    }
+    
+    //MARK: - Actions
+    
+    func showAddLocation() {
+        coordinator.showAddLocation()
     }
     
     //MARK: - Internal methods
     
     func loadData() async {
+        guard isLoading == false else {
+            return
+        }
+        isLoading = true
         
         await MainActor.run {
             viewState = .loading
         }
         
         do {
-            self.locations = try await self.service.getLocations()
+            locations = try await service.getLocations()
             
             await MainActor.run {
                 viewState = .successView
@@ -55,4 +70,12 @@ class PlacesViewModel: ObservableObject {
         }
     }
     
+    private func getPlaceItemViewModels(locations: [Location]) -> [PlaceItemViewModel] {
+        locations.filter {
+            $0.name != nil
+        }
+        .map {
+            PlaceItemViewModel(location: $0)
+        }
+    }
 }

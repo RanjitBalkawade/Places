@@ -16,4 +16,5 @@ protocol MainCoordinatorProtocol {
     // MARK: - Public methods
     
     func start()
+    func showAddLocation()
 }
