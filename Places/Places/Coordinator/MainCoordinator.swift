@@ -26,9 +26,13 @@ class MainCoordinator: MainCoordinatorProtocol {
         navigationController.pushViewController(PlacesViewController(viewModel), animated: false)
     }
     
-    func showAddLocation() {
-        let viewModel = AddLocationViewModel(coordinator: self)
+    func showAddLocation(completion: @escaping ((Location) -> Void)) {
+        let viewModel = AddLocationViewModel(coordinator: self, completion: completion)
         navigationController.pushViewController(AddLocationViewController(viewModel), animated: true)
+    }
+    
+    func dismiss() {
+        navigationController.popViewController(animated: true)
     }
     
 }

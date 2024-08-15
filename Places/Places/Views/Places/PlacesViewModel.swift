@@ -41,7 +41,9 @@ class PlacesViewModel: ObservableObject {
     //MARK: - Actions
     
     func showAddLocation() {
-        coordinator.showAddLocation()
+        coordinator.showAddLocation() { [weak self] location in
+            self?.userDefinedLocations.append(location)
+        }
     }
     
     //MARK: - Internal methods

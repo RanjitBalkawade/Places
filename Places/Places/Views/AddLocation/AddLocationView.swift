@@ -9,13 +9,43 @@ import SwiftUI
 
 struct AddLocationView: View {
     
-    var viewModel: AddLocationViewModel
+    @ObservedObject var viewModel: AddLocationViewModel
+    @State var name = ""
+    @State var latitude = ""
+    @State var longitude = ""
     
     var body: some View {
-        Text("Hello")
+        VStack(spacing: 24) {
+            Text(viewModel.title)
+                .font(.headline)
+            Text(viewModel.message)
+                .font(.subheadline)
+            VStack(spacing: 8) {
+                TextField(viewModel.namePlaceHolder, text: $name)
+                TextField(viewModel.latitudePlaceHolder, text: $latitude)
+                    .keyboardType(.decimalPad)
+                TextField(viewModel.longitudePlaceHolder, text: $longitude)
+                    .keyboardType(.decimalPad)
+            }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            if let error = viewModel.addLocationError {
+                Text(error.description)
+                    .font(.subheadline)
+                    .foregroundStyle(.red)
+            }
+            Spacer()
+            Button(viewModel.addButtonTitle) {
+                viewModel.addLocation(
+                    name: name,
+                    latitude: latitude,
+                    longitude: longitude
+                )
+            }
+        }
+        .padding(24)
     }
 }
 
 #Preview {
-    AddLocationView(viewModel: AddLocationViewModel(coordinator: MockMainCoordinator()))
+    AddLocationView(viewModel: AddLocationViewModel(coordinator: MockMainCoordinator(), completion: {_ in}))
 }

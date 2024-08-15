@@ -16,5 +16,6 @@ protocol MainCoordinatorProtocol {
     // MARK: - Public methods
     
     func start()
-    func showAddLocation()
+    func dismiss()
+    func showAddLocation(completion: @escaping ((Location) -> Void))
 }

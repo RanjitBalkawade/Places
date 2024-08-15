@@ -12,6 +12,6 @@ class MockMainCoordinator: MainCoordinatorProtocol {
     var navigationController: UINavigationController = UINavigationController()
     
     func start() {}
-    
-    func showAddLocation() {}
+    func dismiss() {}
+    func showAddLocation(completion: @escaping ((Location) -> Void)) {}
 }

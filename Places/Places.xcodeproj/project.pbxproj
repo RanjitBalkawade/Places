@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CD4324D12C6D16BF0030FE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324D02C6D16BF0030FE73 /* AppDelegate.swift */; };
-		CD4324D52C6D16BF0030FE73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324D42C6D16BF0030FE73 /* ViewController.swift */; };
 		CD4324DA2C6D16C10030FE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4324D92C6D16C10030FE73 /* Assets.xcassets */; };
 		CD4324DD2C6D16C10030FE73 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CD4324DC2C6D16C10030FE73 /* Base */; };
 		CD4324E82C6D16C10030FE73 /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4324E72C6D16C10030FE73 /* PlacesTests.swift */; };
@@ -51,7 +50,6 @@
 /* Begin PBXFileReference section */
 		CD4324CD2C6D16BF0030FE73 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4324D02C6D16BF0030FE73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD4324D42C6D16BF0030FE73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD4324D92C6D16C10030FE73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD4324DC2C6D16C10030FE73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD4324DE2C6D16C10030FE73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,14 +123,13 @@
 		CD4324CF2C6D16BF0030FE73 /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				CD4325282C6D29770030FE73 /* PreviewMocks */,
+				CD4325012C6D181D0030FE73 /* Coordinator */,
 				CD4325222C6D27770030FE73 /* Network */,
 				CD43251D2C6D26750030FE73 /* Model */,
 				CD4325062C6D18E10030FE73 /* Views */,
-				CD4325012C6D181D0030FE73 /* Coordinator */,
 				CD4325002C6D18040030FE73 /* Factory */,
+				CD4325282C6D29770030FE73 /* PreviewMocks */,
 				CD4324D02C6D16BF0030FE73 /* AppDelegate.swift */,
-				CD4324D42C6D16BF0030FE73 /* ViewController.swift */,
 				CD4324D92C6D16C10030FE73 /* Assets.xcassets */,
 				CD4324DB2C6D16C10030FE73 /* LaunchScreen.storyboard */,
 				CD4324DE2C6D16C10030FE73 /* Info.plist */,
@@ -373,7 +370,6 @@
 				CD43251F2C6D26A80030FE73 /* LocationsGetResponse.swift in Sources */,
 				CD43250B2C6D19B10030FE73 /* PlacesView.swift in Sources */,
 				CD43252A2C6D299B0030FE73 /* MockLocationsGetService.swift in Sources */,
-				CD4324D52C6D16BF0030FE73 /* ViewController.swift in Sources */,
 				CD4325052C6D18680030FE73 /* MainCoordinator.swift in Sources */,
 				CD4325352C6E288B0030FE73 /* AddLocationViewModel.swift in Sources */,
 				CD4325312C6E28620030FE73 /* AddLocationViewController.swift in Sources */,
