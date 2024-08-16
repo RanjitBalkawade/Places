@@ -17,33 +17,35 @@ protocol GetServiceProtocol {
 
 extension GetServiceProtocol {
     func execute(urlRequest: URLRequest) async throws -> T {
-        let (data, response) = try await session.data(for: urlRequest)
-        
-        guard
-            let httpResponse = response as? HTTPURLResponse,
-            httpResponse.hasSuccessStatusCode else {
-            throw DataResponseError.network
-        }
-        
         do {
-            let modelData = try JSONDecoder().decode(T.self, from: data)
-            return modelData
+            let (data, response) = try await session.data(for: urlRequest)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw DataError.unknown
+            }
+            
+            guard httpResponse.hasSuccessStatusCode else {
+                print("Request failed with error code: \(httpResponse.statusCode) description: \(httpResponse.description)")
+                throw httpResponse.convertToDataError()
+            }
+            
+            do {
+                let modelData = try JSONDecoder().decode(T.self, from: data)
+                return modelData
+            }
+            catch {
+                throw DataError.decoding
+            }
+            
+        }
+        catch let dataError as DataError {
+            throw dataError
         }
         catch {
-            throw DataResponseError.decoding
+            guard let nsError = error as NSError? else {
+                throw DataError.unknown
+            }
+            print("Request failed with error code: \(nsError.code) description: \(nsError.localizedDescription)")
+            throw nsError.converToDataError()
         }
-    }
-}
-
-enum DataResponseError: Error {
-    case network
-    case decoding
-    case noData
-    case invalidURLRequest
-}
-
-extension HTTPURLResponse {
-    var hasSuccessStatusCode: Bool {
-        return 200...299 ~= self.statusCode
     }
 }

@@ -31,6 +31,12 @@
 		CD4325712C6E80330030FE73 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325702C6E80330030FE73 /* Configuration.swift */; };
 		CD4325742C6E89C40030FE73 /* LocationsGetServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */; };
 		CD4325772C6E8A390030FE73 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */; };
+		CD9AE1EA2C6F536F00373318 /* LocationsGetServiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1E92C6F536F00373318 /* LocationsGetServiceParser.swift */; };
+		CD9AE1EC2C6FA0D000373318 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1EB2C6FA0D000373318 /* DataError.swift */; };
+		CD9AE1EF2C6FA12100373318 /* HTTPURLResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1EE2C6FA12100373318 /* HTTPURLResponseExtension.swift */; };
+		CD9AE1F12C6FA14D00373318 /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1F02C6FA14D00373318 /* NSErrorExtension.swift */; };
+		CD9AE1F42C6FB36300373318 /* LocationsGetServiceParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1F32C6FB36300373318 /* LocationsGetServiceParserTests.swift */; };
+		CD9AE1F72C6FB3CD00373318 /* LocationsFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1F62C6FB3CD00373318 /* LocationsFixture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +85,12 @@
 		CD4325702C6E80330030FE73 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetServiceTests.swift; sourceTree = "<group>"; };
 		CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		CD9AE1E92C6F536F00373318 /* LocationsGetServiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetServiceParser.swift; sourceTree = "<group>"; };
+		CD9AE1EB2C6FA0D000373318 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		CD9AE1EE2C6FA12100373318 /* HTTPURLResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseExtension.swift; sourceTree = "<group>"; };
+		CD9AE1F02C6FA14D00373318 /* NSErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtension.swift; sourceTree = "<group>"; };
+		CD9AE1F32C6FB36300373318 /* LocationsGetServiceParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetServiceParserTests.swift; sourceTree = "<group>"; };
+		CD9AE1F62C6FB3CD00373318 /* LocationsFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsFixture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +159,7 @@
 		CD4324E62C6D16C10030FE73 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD9AE1F52C6FB38A00373318 /* Fixtures */,
 				CD4325752C6E8A250030FE73 /* Mock */,
 				CD4325722C6E89450030FE73 /* Network */,
 			);
@@ -211,6 +224,8 @@
 		CD4325222C6D27770030FE73 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CD9AE1ED2C6FA0F800373318 /* Extensions */,
+				CD9AE1E82C6F533200373318 /* Parser */,
 				CD4325232C6D277E0030FE73 /* Services */,
 			);
 			path = Network;
@@ -221,6 +236,7 @@
 			children = (
 				CD4325242C6D27A10030FE73 /* LocationsGetService.swift */,
 				CD43256E2C6E7C940030FE73 /* GetServiceProtocol.swift */,
+				CD9AE1EB2C6FA0D000373318 /* DataError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -247,7 +263,8 @@
 		CD4325722C6E89450030FE73 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */,
+				CD9AE1F82C6FBAA200373318 /* Services */,
+				CD9AE1F22C6FB35000373318 /* Parser */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -258,6 +275,47 @@
 				CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		CD9AE1E82C6F533200373318 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE1E92C6F536F00373318 /* LocationsGetServiceParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		CD9AE1ED2C6FA0F800373318 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE1EE2C6FA12100373318 /* HTTPURLResponseExtension.swift */,
+				CD9AE1F02C6FA14D00373318 /* NSErrorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD9AE1F22C6FB35000373318 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE1F32C6FB36300373318 /* LocationsGetServiceParserTests.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		CD9AE1F52C6FB38A00373318 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE1F62C6FB3CD00373318 /* LocationsFixture.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		CD9AE1F82C6FBAA200373318 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CD4325732C6E89C40030FE73 /* LocationsGetServiceTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,13 +451,17 @@
 			files = (
 				CD4325212C6D26C00030FE73 /* Location.swift in Sources */,
 				CD43252E2C6E237A0030FE73 /* MockMainCoordinator.swift in Sources */,
+				CD9AE1EA2C6F536F00373318 /* LocationsGetServiceParser.swift in Sources */,
 				CD43251F2C6D26A80030FE73 /* LocationsGetResponse.swift in Sources */,
 				CD43250B2C6D19B10030FE73 /* PlacesView.swift in Sources */,
 				CD43252A2C6D299B0030FE73 /* MockLocationsGetService.swift in Sources */,
+				CD9AE1EF2C6FA12100373318 /* HTTPURLResponseExtension.swift in Sources */,
+				CD9AE1F12C6FA14D00373318 /* NSErrorExtension.swift in Sources */,
 				CD4325052C6D18680030FE73 /* MainCoordinator.swift in Sources */,
 				CD4325352C6E288B0030FE73 /* AddLocationViewModel.swift in Sources */,
 				CD4325312C6E28620030FE73 /* AddLocationViewController.swift in Sources */,
 				CD4325092C6D19790030FE73 /* PlacesViewController.swift in Sources */,
+				CD9AE1EC2C6FA0D000373318 /* DataError.swift in Sources */,
 				CD43256F2C6E7C940030FE73 /* GetServiceProtocol.swift in Sources */,
 				CD43252C2C6D3A720030FE73 /* PlaceItemViewModel.swift in Sources */,
 				CD4325272C6D28D10030FE73 /* PlacesViewModel.swift in Sources */,
@@ -416,7 +478,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9AE1F72C6FB3CD00373318 /* LocationsFixture.swift in Sources */,
 				CD4325742C6E89C40030FE73 /* LocationsGetServiceTests.swift in Sources */,
+				CD9AE1F42C6FB36300373318 /* LocationsGetServiceParserTests.swift in Sources */,
 				CD4325772C6E8A390030FE73 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,64 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "24F411C8-73E9-4A95-B063-9DA53788365E"
+            uuid = "62AFE567-9FC4-42E5-A962-D728AFF5A367"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlacesTests/Mock/MockURLProtocol.swift"
+            filePath = "Places/Network/Services/GetServiceProtocol.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "startLoading()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "execute(urlRequest:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6926E488-A5CF-417F-B314-3B2F11547F54"
+            uuid = "089DB20F-FF39-42F4-B7C5-6A1419173FAF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Places/Network/Services/LocationsGetService.swift"
+            filePath = "Places/Network/Services/GetServiceProtocol.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "init(session:urlString:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "execute(urlRequest:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "758F27DC-1C0A-4D80-90B6-A42249A72BBC"
+            uuid = "A5B0483E-E6DD-464C-8E50-4C456530B672"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Places/Network/Services/LocationsGetService.swift"
+            filePath = "Places/Network/Services/GetServiceProtocol.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getLocations()"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "execute(urlRequest:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "944C22A2-6B21-482C-BBF0-AF64D4E93F72"
+            uuid = "C2A621EF-F337-43DC-A79E-886945FFD9D4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Places/AppDelegate.swift"
+            filePath = "Places/Network/Services/GetServiceProtocol.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "execute(urlRequest:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F914E5E-A0FB-4D83-874E-9ACECE5502AC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Places/Network/Services/GetServiceProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "execute(urlRequest:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75635FC3-4FE0-47F0-B5A0-CEACF7861AE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Places/Network/Services/GetServiceProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "execute(urlRequest:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

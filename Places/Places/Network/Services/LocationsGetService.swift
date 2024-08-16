@@ -13,7 +13,7 @@ protocol LocationsGetServiceProtocol {
 
 extension LocationsGetService: LocationsGetServiceProtocol {}
 
-class LocationsGetService: GetServiceProtocol {
+final class LocationsGetService: GetServiceProtocol {
     
     typealias T = LocationsGetResponse
     
@@ -26,16 +26,17 @@ class LocationsGetService: GetServiceProtocol {
     }
     
     func getLocations() async throws -> [Location] {
-        guard let urlRequest = self.getURLRequest() else {
-            throw DataResponseError.invalidURLRequest
+        guard let urlRequest = getURLRequest() else {
+            throw DataError.invalidURLRequest
         }
         
-        let response = try await self.execute(urlRequest: urlRequest)
-        return response.locations
+        let response = try await execute(urlRequest: urlRequest)
+        let parser = LocationsGetServiceParser(response)
+        return parser.locations
     }
     
     private func getURLRequest() -> URLRequest? {
-        guard let url = URL(string: self.urlString) else {
+        guard let url = URL(string: urlString) else {
             return nil
         }
         
