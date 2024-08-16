@@ -13,12 +13,14 @@ struct PlacesView: View {
     var body: some View {
         VStack {
             switch viewModel.viewState {
-                case .successView:
-                    successView
-                case .failureView:
-                    failureView
                 case .loading:
                     loadingView
+                case .successView:
+                    successView
+                case .failureViewWithRetry:
+                    failureViewWithRetry
+                case .failureView:
+                    failureView
             }
         }
         .task {
@@ -56,7 +58,19 @@ struct PlacesView: View {
     }
     
     private var failureView: some View {
-        Text("Failed to load data")
+        Text(viewModel.errorMessage)
+            .padding(24)
+    }
+    
+    private var failureViewWithRetry: some View {
+        VStack {
+            Text(viewModel.errorMessage)
+            Button(
+                action: { Task { await viewModel.loadData() }},
+                label: { Text("Try again").padding() }
+            )
+        }
+        .padding(24)
     }
     
     private var loadingView: some View {
