@@ -40,6 +40,13 @@
 		CD9AE1FB2C70899500373318 /* ExternalAppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1FA2C70899500373318 /* ExternalAppCommunicator.swift */; };
 		CD9AE2042C70F11800373318 /* ExternalAppCommunicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2032C70F11800373318 /* ExternalAppCommunicatorTests.swift */; };
 		CD9AE2062C70F15200373318 /* MockUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2052C70F15200373318 /* MockUIApplication.swift */; };
+		CD9AE2082C7104D800373318 /* MockMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2072C7104D800373318 /* MockMainCoordinator.swift */; };
+		CD9AE20A2C71068000373318 /* MockLocationsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2092C71068000373318 /* MockLocationsGetService.swift */; };
+		CD9AE20D2C710BA400373318 /* PlacesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE20C2C710BA400373318 /* PlacesViewModelTests.swift */; };
+		CD9AE20F2C711E2100373318 /* AddLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE20E2C711E2100373318 /* AddLocationViewModelTests.swift */; };
+		CD9AE2112C712A5C00373318 /* MockExternalAppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2102C712A5C00373318 /* MockExternalAppCommunicator.swift */; };
+		CD9AE2142C712AB400373318 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2132C712AB400373318 /* MainCoordinatorTests.swift */; };
+		CD9AE2162C71390C00373318 /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2152C71390C00373318 /* MockNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +104,13 @@
 		CD9AE1FA2C70899500373318 /* ExternalAppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAppCommunicator.swift; sourceTree = "<group>"; };
 		CD9AE2032C70F11800373318 /* ExternalAppCommunicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAppCommunicatorTests.swift; sourceTree = "<group>"; };
 		CD9AE2052C70F15200373318 /* MockUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUIApplication.swift; sourceTree = "<group>"; };
+		CD9AE2072C7104D800373318 /* MockMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainCoordinator.swift; sourceTree = "<group>"; };
+		CD9AE2092C71068000373318 /* MockLocationsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationsGetService.swift; sourceTree = "<group>"; };
+		CD9AE20C2C710BA400373318 /* PlacesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModelTests.swift; sourceTree = "<group>"; };
+		CD9AE20E2C711E2100373318 /* AddLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModelTests.swift; sourceTree = "<group>"; };
+		CD9AE2102C712A5C00373318 /* MockExternalAppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExternalAppCommunicator.swift; sourceTree = "<group>"; };
+		CD9AE2132C712AB400373318 /* MainCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTests.swift; sourceTree = "<group>"; };
+		CD9AE2152C71390C00373318 /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +180,8 @@
 		CD4324E62C6D16C10030FE73 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD9AE2122C712A9D00373318 /* Coordinator */,
+				CD9AE20B2C710B7000373318 /* ViewModels */,
 				CD9AE2022C70F0FD00373318 /* Components */,
 				CD9AE1F52C6FB38A00373318 /* Fixtures */,
 				CD4325752C6E8A250030FE73 /* Mock */,
@@ -282,6 +298,10 @@
 			children = (
 				CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */,
 				CD9AE2052C70F15200373318 /* MockUIApplication.swift */,
+				CD9AE2072C7104D800373318 /* MockMainCoordinator.swift */,
+				CD9AE2092C71068000373318 /* MockLocationsGetService.swift */,
+				CD9AE2102C712A5C00373318 /* MockExternalAppCommunicator.swift */,
+				CD9AE2152C71390C00373318 /* MockNavigationController.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -341,6 +361,23 @@
 				CD9AE2032C70F11800373318 /* ExternalAppCommunicatorTests.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CD9AE20B2C710B7000373318 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE20C2C710BA400373318 /* PlacesViewModelTests.swift */,
+				CD9AE20E2C711E2100373318 /* AddLocationViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CD9AE2122C712A9D00373318 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE2132C712AB400373318 /* MainCoordinatorTests.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,11 +542,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9AE1F72C6FB3CD00373318 /* LocationsFixture.swift in Sources */,
+				CD9AE2082C7104D800373318 /* MockMainCoordinator.swift in Sources */,
 				CD4325742C6E89C40030FE73 /* LocationsGetServiceTests.swift in Sources */,
 				CD9AE2042C70F11800373318 /* ExternalAppCommunicatorTests.swift in Sources */,
 				CD9AE1F42C6FB36300373318 /* LocationsGetServiceParserTests.swift in Sources */,
+				CD9AE2142C712AB400373318 /* MainCoordinatorTests.swift in Sources */,
+				CD9AE2162C71390C00373318 /* MockNavigationController.swift in Sources */,
+				CD9AE20F2C711E2100373318 /* AddLocationViewModelTests.swift in Sources */,
+				CD9AE20D2C710BA400373318 /* PlacesViewModelTests.swift in Sources */,
 				CD9AE2062C70F15200373318 /* MockUIApplication.swift in Sources */,
 				CD4325772C6E8A390030FE73 /* MockURLProtocol.swift in Sources */,
+				CD9AE2112C712A5C00373318 /* MockExternalAppCommunicator.swift in Sources */,
+				CD9AE20A2C71068000373318 /* MockLocationsGetService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
