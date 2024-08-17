@@ -39,6 +39,12 @@ enum ExternalApp {
 
 class ExternalAppCommunicator: ExternalAppCommunicatorProtocol {
     
+    private let application: UIApplicationOpenAppProtocol
+    
+    init(application: UIApplicationOpenAppProtocol = UIApplication.shared) {
+        self.application = application
+    }
+    
     func openPlaces(app: ExternalApp, latitude: Double, longitude: Double, completionHandler: ((Bool) -> Void)?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = app.urlScheme
@@ -52,14 +58,20 @@ class ExternalAppCommunicator: ExternalAppCommunicatorProtocol {
             return
         }
         
-        UIApplication.shared.open(url, completionHandler: completionHandler)
+        application.open(url, options: [:], completionHandler: completionHandler)
     }
     
     func showInstallLink(app: ExternalApp) {
         guard let url = URL(string: app.installLink) else {
             return
         }
-        return UIApplication.shared.open(url)
+        return application.open(url, options: [:], completionHandler: {_ in })
     }
     
 }
+
+protocol UIApplicationOpenAppProtocol {
+    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any], completionHandler completion: ((Bool) -> Void)?)
+}
+
+extension UIApplication: UIApplicationOpenAppProtocol {}
