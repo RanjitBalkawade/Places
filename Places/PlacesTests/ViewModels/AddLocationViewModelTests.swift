@@ -31,56 +31,56 @@ class AddLocationViewModelTests: XCTestCase {
     
     // MARK: - Computed Properties Tests
     
-    func testTitle() {
+    func testAddLocationViewModel_Title() {
         XCTAssertEqual(viewModel.title, "Add location")
     }
     
-    func testMessage() {
+    func testAddLocationViewModel_Message() {
         XCTAssertEqual(viewModel.message, "Please add details below to add new location.")
     }
     
-    func testNamePlaceHolder() {
+    func testAddLocationViewModel_NamePlaceHolder() {
         XCTAssertEqual(viewModel.namePlaceHolder, "Name")
     }
     
-    func testLatitudePlaceHolder() {
+    func testAddLocationViewModel_LatitudePlaceHolder() {
         XCTAssertEqual(viewModel.latitudePlaceHolder, "Latitude")
     }
     
-    func testLongitudePlaceHolder() {
+    func testAddLocationViewModel_LongitudePlaceHolder() {
         XCTAssertEqual(viewModel.longitudePlaceHolder, "Longitude")
     }
     
-    func testAddButtonTitle() {
+    func testAddLocationViewModel_AddButtonTitle() {
         XCTAssertEqual(viewModel.addButtonTitle, "Add")
     }
     
-    func testAddLocationWithEmptyName() {
+    func testAddLocationViewModel_AddLocationWithEmptyName() {
         viewModel.addLocation(name: "", latitude: "52.379189", longitude: "4.899431")
         XCTAssertEqual(viewModel.addLocationError, .NameNotAdded)
     }
     
-    func testAddLocationWithEmptyLatitude() {
+    func testAddLocationViewModel_AddLocationWithEmptyLatitude() {
         viewModel.addLocation(name: "Amsterdam", latitude: "", longitude: "4.899431")
         XCTAssertEqual(viewModel.addLocationError, .LatitudeNotAdded)
     }
     
-    func testAddLocationWithEmptyLongitude() {
+    func testAddLocationViewModel_AddLocationWithEmptyLongitude() {
         viewModel.addLocation(name: "Amsterdam", latitude: "52.379189", longitude: "")
         XCTAssertEqual(viewModel.addLocationError, .LongitudeNotAdded)
     }
     
-    func testAddLocationWithInvalidLatitude() {
+    func testAddLocationViewModel_AddLocationWithInvalidLatitude() {
         viewModel.addLocation(name: "Amsterdam", latitude: "invalid_lat", longitude: "4.899431")
         XCTAssertEqual(viewModel.addLocationError, .wrongLatitude)
     }
     
-    func testAddLocationWithInvalidLongitude() {
+    func testAddLocationViewModel_AddLocationWithInvalidLongitude() {
         viewModel.addLocation(name: "Amsterdam", latitude: "52.379189", longitude: "invalid_lon")
         XCTAssertEqual(viewModel.addLocationError, .wrongLongitude)
     }
     
-    func testAddLocationWithValidData() {
+    func testAddLocationViewModel_AddLocationWithValidData() {
         
         let location = LocationsFixture.location
         

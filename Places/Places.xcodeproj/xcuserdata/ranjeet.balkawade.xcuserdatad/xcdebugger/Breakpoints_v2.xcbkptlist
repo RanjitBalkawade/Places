@@ -80,7 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "testAddLocationWithInvalidLongitude()"
+            landmarkName = "testAddLocationViewModel_AddLocationWithInvalidLongitude()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -96,7 +96,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "testAddLocationWithValidData()"
+            landmarkName = "testAddLocationViewModel_AddLocationWithValidData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

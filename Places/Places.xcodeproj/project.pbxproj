@@ -47,6 +47,10 @@
 		CD9AE2112C712A5C00373318 /* MockExternalAppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2102C712A5C00373318 /* MockExternalAppCommunicator.swift */; };
 		CD9AE2142C712AB400373318 /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2132C712AB400373318 /* MainCoordinatorTests.swift */; };
 		CD9AE2162C71390C00373318 /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE2152C71390C00373318 /* MockNavigationController.swift */; };
+		CD9AE2192C713B8800373318 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = CD9AE2182C713B8800373318 /* InlineSnapshotTesting */; };
+		CD9AE21B2C713B8800373318 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = CD9AE21A2C713B8800373318 /* SnapshotTesting */; };
+		CD9AE21E2C713BD400373318 /* PlacesViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE21D2C713BD400373318 /* PlacesViewSnapshotTests.swift */; };
+		CD9AE2202C713E4400373318 /* AddLocationViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE21F2C713E4400373318 /* AddLocationViewSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +115,8 @@
 		CD9AE2102C712A5C00373318 /* MockExternalAppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExternalAppCommunicator.swift; sourceTree = "<group>"; };
 		CD9AE2132C712AB400373318 /* MainCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTests.swift; sourceTree = "<group>"; };
 		CD9AE2152C71390C00373318 /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
+		CD9AE21D2C713BD400373318 /* PlacesViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewSnapshotTests.swift; sourceTree = "<group>"; };
+		CD9AE21F2C713E4400373318 /* AddLocationViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9AE2192C713B8800373318 /* InlineSnapshotTesting in Frameworks */,
+				CD9AE21B2C713B8800373318 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +188,7 @@
 		CD4324E62C6D16C10030FE73 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD9AE21C2C713BAD00373318 /* SnapshotTests */,
 				CD9AE2122C712A9D00373318 /* Coordinator */,
 				CD9AE20B2C710B7000373318 /* ViewModels */,
 				CD9AE2022C70F0FD00373318 /* Components */,
@@ -380,6 +389,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		CD9AE21C2C713BAD00373318 /* SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE21D2C713BD400373318 /* PlacesViewSnapshotTests.swift */,
+				CD9AE21F2C713E4400373318 /* AddLocationViewSnapshotTests.swift */,
+			);
+			path = SnapshotTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -414,6 +432,10 @@
 				CD4324E52C6D16C10030FE73 /* PBXTargetDependency */,
 			);
 			name = PlacesTests;
+			packageProductDependencies = (
+				CD9AE2182C713B8800373318 /* InlineSnapshotTesting */,
+				CD9AE21A2C713B8800373318 /* SnapshotTesting */,
+			);
 			productName = PlacesTests;
 			productReference = CD4324E32C6D16C10030FE73 /* PlacesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -469,6 +491,9 @@
 				Base,
 			);
 			mainGroup = CD4324C42C6D16BF0030FE73;
+			packageReferences = (
+				CD9AE2172C713B8800373318 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = CD4324CE2C6D16BF0030FE73 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -543,12 +568,14 @@
 			files = (
 				CD9AE1F72C6FB3CD00373318 /* LocationsFixture.swift in Sources */,
 				CD9AE2082C7104D800373318 /* MockMainCoordinator.swift in Sources */,
+				CD9AE2202C713E4400373318 /* AddLocationViewSnapshotTests.swift in Sources */,
 				CD4325742C6E89C40030FE73 /* LocationsGetServiceTests.swift in Sources */,
 				CD9AE2042C70F11800373318 /* ExternalAppCommunicatorTests.swift in Sources */,
 				CD9AE1F42C6FB36300373318 /* LocationsGetServiceParserTests.swift in Sources */,
 				CD9AE2142C712AB400373318 /* MainCoordinatorTests.swift in Sources */,
 				CD9AE2162C71390C00373318 /* MockNavigationController.swift in Sources */,
 				CD9AE20F2C711E2100373318 /* AddLocationViewModelTests.swift in Sources */,
+				CD9AE21E2C713BD400373318 /* PlacesViewSnapshotTests.swift in Sources */,
 				CD9AE20D2C710BA400373318 /* PlacesViewModelTests.swift in Sources */,
 				CD9AE2062C70F15200373318 /* MockUIApplication.swift in Sources */,
 				CD4325772C6E8A390030FE73 /* MockURLProtocol.swift in Sources */,
@@ -882,6 +909,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD9AE2172C713B8800373318 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD9AE2182C713B8800373318 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD9AE2172C713B8800373318 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		CD9AE21A2C713B8800373318 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD9AE2172C713B8800373318 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CD4324C52C6D16BF0030FE73 /* Project object */;
 }
