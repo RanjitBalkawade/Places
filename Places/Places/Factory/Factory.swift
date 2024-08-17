@@ -11,7 +11,7 @@ import UIKit
 class Factory {
         
     static func mainCoordinator() -> MainCoordinatorProtocol {
-        MainCoordinator(navigationController: UINavigationController())
+        MainCoordinator(navigationController: UINavigationController(), externalAppCommunicator: ExternalAppCommunicator())
     }
     
     static func locationsGetService() -> LocationsGetServiceProtocol {

@@ -36,16 +36,22 @@ struct PlacesView: View {
             List {
                 if viewModel.placeItemViewModels.isEmpty == false {
                     Section(header: Text("Locations")) {
-                        ForEach(viewModel.placeItemViewModels) {
-                            Text($0.name)
+                        ForEach(viewModel.placeItemViewModels) { vm in
+                            Text(vm.name)
+                                .onTapGesture {
+                                    viewModel.showLocation(vm)
+                                }
                         }
                     }
                 }
                 
                 if viewModel.userDefinedPlaceItemViewModels.isEmpty == false {
                     Section(header: Text("User defined locations")) {
-                        ForEach(viewModel.userDefinedPlaceItemViewModels) {
-                            Text($0.name)
+                        ForEach(viewModel.userDefinedPlaceItemViewModels) { vm in
+                            Text(vm.name)
+                                .onTapGesture {
+                                    viewModel.showLocation(vm)
+                                }
                         }
                     }
                 }

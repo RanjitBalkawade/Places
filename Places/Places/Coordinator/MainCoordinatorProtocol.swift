@@ -18,4 +18,13 @@ protocol MainCoordinatorProtocol {
     func start()
     func dismiss()
     func showAddLocation(completion: @escaping ((Location) -> Void))
+    func showLocation(app: ExternalApp, latitude: Double, longitude: Double, completionHandler: ((Bool) -> Void)?)
+    func showInstallLink(app: ExternalApp)
+    
+    func showAlert(
+        title: String,
+        message: String?,
+        defaultHandler: ((UIAlertAction) -> Void)?,
+        cancelHandler: ((UIAlertAction) -> Void)?
+    )
 }

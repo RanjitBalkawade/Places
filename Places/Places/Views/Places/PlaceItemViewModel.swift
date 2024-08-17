@@ -19,6 +19,14 @@ class PlaceItemViewModel: ObservableObject {
         location.name ?? "Unknown location"
     }
     
+    var latitude: Double {
+        location.lat
+    }
+    
+    var longitude: Double {
+        location.long
+    }
+    
     private let location: Location
     
     init(location: Location) {

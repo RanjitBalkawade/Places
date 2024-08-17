@@ -42,6 +42,18 @@ class PlacesViewModel: ObservableObject {
         }
     }
 
+    var externalApp: ExternalApp {
+        .wikipedia
+    }
+    
+    var alertTitle: String {
+        "\(externalApp.name) is not installed on your device."
+    }
+    
+    var alertMessage: String {
+        "Please install \(externalApp.name) to view the location."
+    }
+    
     private let service: LocationsGetServiceProtocol
     private let coordinator: MainCoordinatorProtocol
     private var locations: [Location] = []
@@ -59,6 +71,29 @@ class PlacesViewModel: ObservableObject {
     func showAddLocation() {
         coordinator.showAddLocation() { [weak self] location in
             self?.userDefinedLocations.append(location)
+        }
+    }
+    
+    func showLocation(_ viewModel: PlaceItemViewModel) {
+        
+        coordinator.showLocation(
+            app: externalApp,
+            latitude: viewModel.latitude,
+            longitude: viewModel.longitude
+        ) { [weak self] isSuccess in
+            
+            guard isSuccess == false, let alertTitle = self?.alertTitle, let externalApp = self?.externalApp else {
+                return
+            }
+            
+            self?.coordinator.showAlert(
+                title: alertTitle,
+                message: self?.alertMessage,
+                defaultHandler: { [weak self] _ in
+                    self?.coordinator.showInstallLink(app: externalApp)
+                },
+                cancelHandler: nil
+            )
         }
     }
     

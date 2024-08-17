@@ -37,6 +37,7 @@
 		CD9AE1F12C6FA14D00373318 /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1F02C6FA14D00373318 /* NSErrorExtension.swift */; };
 		CD9AE1F42C6FB36300373318 /* LocationsGetServiceParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1F32C6FB36300373318 /* LocationsGetServiceParserTests.swift */; };
 		CD9AE1F72C6FB3CD00373318 /* LocationsFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1F62C6FB3CD00373318 /* LocationsFixture.swift */; };
+		CD9AE1FB2C70899500373318 /* ExternalAppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AE1FA2C70899500373318 /* ExternalAppCommunicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CD9AE1F02C6FA14D00373318 /* NSErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtension.swift; sourceTree = "<group>"; };
 		CD9AE1F32C6FB36300373318 /* LocationsGetServiceParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsGetServiceParserTests.swift; sourceTree = "<group>"; };
 		CD9AE1F62C6FB3CD00373318 /* LocationsFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsFixture.swift; sourceTree = "<group>"; };
+		CD9AE1FA2C70899500373318 /* ExternalAppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAppCommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		CD4324CF2C6D16BF0030FE73 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				CD9AE1F92C70890100373318 /* Components */,
 				CD4325012C6D181D0030FE73 /* Coordinator */,
 				CD4325222C6D27770030FE73 /* Network */,
 				CD43251D2C6D26750030FE73 /* Model */,
@@ -318,6 +321,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CD9AE1F92C70890100373318 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CD9AE1FA2C70899500373318 /* ExternalAppCommunicator.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,6 +466,7 @@
 				CD43251F2C6D26A80030FE73 /* LocationsGetResponse.swift in Sources */,
 				CD43250B2C6D19B10030FE73 /* PlacesView.swift in Sources */,
 				CD43252A2C6D299B0030FE73 /* MockLocationsGetService.swift in Sources */,
+				CD9AE1FB2C70899500373318 /* ExternalAppCommunicator.swift in Sources */,
 				CD9AE1EF2C6FA12100373318 /* HTTPURLResponseExtension.swift in Sources */,
 				CD9AE1F12C6FA14D00373318 /* NSErrorExtension.swift in Sources */,
 				CD4325052C6D18680030FE73 /* MainCoordinator.swift in Sources */,
