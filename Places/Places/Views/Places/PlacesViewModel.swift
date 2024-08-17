@@ -13,37 +13,7 @@ class PlacesViewModel: ObservableObject {
     enum ViewState {
         case loading
         case successView
-        case failureViewWithRetry
         case failureView
-    }
-    
-    @Published var viewState: ViewState = .loading
-
-    var placeItemViewModels: [PlaceItemViewModel] {
-        getPlaceItemViewModels(locations: locations)
-    }
-    
-    var userDefinedPlaceItemViewModels: [PlaceItemViewModel] {
-        getPlaceItemViewModels(locations: userDefinedLocations)
-    }
-    
-    var errorMessage: String {
-        switch dataError {
-            case .server:
-                "There is a backend issue. Please try again after some time."
-            case .client, .decoding, .invalidURLRequest, .unknown, nil:
-                "Something has gone wrong with the app. Please install the latest version of the app if available or contact us."
-            case .information, .rediret, .general:
-                "Please try again after some time."
-            case .internetConnectivity:
-                "It appears that there is a issue with your internet connection. Please check your internet connection and try again."
-            case .timeout:
-                "Request took long time to process, please try again."
-        }
-    }
-
-    var externalApp: ExternalApp {
-        .wikipedia
     }
     
     var alertTitle: String {
@@ -54,12 +24,61 @@ class PlacesViewModel: ObservableObject {
         "Please install \(externalApp.name) to view the location."
     }
     
+    var locationsTitle: String {
+        "Locations"
+    }
+    
+    var userDefinedlocationsTitle: String {
+        "User defined locations"
+    }
+    
+    var addLocationsTitle: String {
+        "Add location"
+    }
+    
+    var retryTitle: String {
+        "Try again"
+    }
+    
+    var loadingTitle: String {
+        "Loading..."
+    }
+
+    var errorMessage: String {
+        guard let dataError = dataError as? DataError else {
+            return "Something has gone wrong with the app. Please install the latest version of the app if available or contact us."
+        }
+        
+        return dataError.errorMessage
+    }
+    
+    var externalApp: ExternalApp {
+        .wikipedia
+    }
+    
+    var placeItemViewModels: [PlaceItemViewModel] {
+        getPlaceItemViewModels(locations: locations)
+    }
+    
+    var userDefinedPlaceItemViewModels: [PlaceItemViewModel] {
+        getPlaceItemViewModels(locations: userDefinedLocations)
+    }
+    
+    var showRetryButton: Bool {
+        guard let dataError = dataError as? DataError else {
+            return false
+        }
+        
+        return dataError != .client && dataError != .decoding && dataError != .invalidURLRequest && dataError != .unknown
+    }
+    
+    @Published private(set) var viewState: ViewState = .loading
+    
+    private var locations: [Location] = []
+    private var userDefinedLocations: [Location] = []
+    private var dataError: Error?
     private let service: LocationsGetServiceProtocol
     private let coordinator: MainCoordinatorProtocol
-    private var locations: [Location] = []
-    private var dataError: DataError?
-    
-    @Published private var userDefinedLocations: [Location] = []
     
     init(service: LocationsGetServiceProtocol, coordinator: MainCoordinatorProtocol) {
         self.service = service
@@ -113,17 +132,8 @@ class PlacesViewModel: ObservableObject {
         }
         catch {
             await MainActor.run {
-                guard let error = error as? DataError else {
-                    viewState = .failureView
-                    return
-                }
                 dataError = error
-                
-                if error == .client || error == .decoding || error == .invalidURLRequest || error == .unknown {
-                    viewState = .failureView
-                } else {
-                    viewState = .failureViewWithRetry
-                }
+                viewState = .failureView
             }
         }
     }
@@ -134,6 +144,23 @@ class PlacesViewModel: ObservableObject {
         }
         .map {
             PlaceItemViewModel(location: $0)
+        }
+    }
+}
+
+private extension DataError {
+    var errorMessage: String {
+        switch self {
+            case .server:
+                return "There is a backend issue. Please try again after some time."
+            case .client, .decoding, .invalidURLRequest, .unknown:
+                return "Something has gone wrong with the app. Please install the latest version of the app if available or contact us."
+            case .information, .rediret, .general:
+                return "Please try again after some time."
+            case .internetConnectivity:
+                return "It appears that there is a issue with your internet connection. Please check your internet connection and try again."
+            case .timeout:
+                return "Request took long time to process, please try again."
         }
     }
 }

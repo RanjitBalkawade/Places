@@ -17,8 +17,6 @@ struct PlacesView: View {
                     loadingView
                 case .successView:
                     successView
-                case .failureViewWithRetry:
-                    failureViewWithRetry
                 case .failureView:
                     failureView
             }
@@ -35,56 +33,57 @@ struct PlacesView: View {
         VStack {
             List {
                 if viewModel.placeItemViewModels.isEmpty == false {
-                    Section(header: Text("Locations")) {
+                    Section(header: Text(viewModel.locationsTitle)) {
                         ForEach(viewModel.placeItemViewModels) { vm in
-                            Text(vm.name)
-                                .onTapGesture {
-                                    viewModel.showLocation(vm)
-                                }
+                            Button(
+                                action: { viewModel.showLocation(vm)},
+                                label: { Text(vm.name) }
+                            )
                         }
                     }
                 }
                 
                 if viewModel.userDefinedPlaceItemViewModels.isEmpty == false {
-                    Section(header: Text("User defined locations")) {
+                    Section(header: Text(viewModel.userDefinedlocationsTitle)) {
                         ForEach(viewModel.userDefinedPlaceItemViewModels) { vm in
-                            Text(vm.name)
-                                .onTapGesture {
-                                    viewModel.showLocation(vm)
-                                }
+                            Button(
+                                action: { viewModel.showLocation(vm)},
+                                label: { Text(vm.name) }
+                            )
                         }
                     }
                 }
             }
+            .tint(.black)
             Button(
                 action: { viewModel.showAddLocation() },
-                label: { Text("Add location").padding() }
+                label: { Text(viewModel.addLocationsTitle).padding() }
             )
         }
     }
     
     private var failureView: some View {
-        Text(viewModel.errorMessage)
-            .padding(24)
-    }
-    
-    private var failureViewWithRetry: some View {
         VStack {
             Text(viewModel.errorMessage)
-            Button(
-                action: { Task { await viewModel.loadData() }},
-                label: { Text("Try again").padding() }
-            )
+            if viewModel.showRetryButton {
+                Button(
+                    action: { Task { await viewModel.loadData() }},
+                    label: { Text(viewModel.retryTitle).padding() }
+                )
+            }
         }
         .padding(24)
     }
     
     private var loadingView: some View {
-        Text("Loading...")
+        Text(viewModel.loadingTitle)
     }
 }
 
 #Preview {
-    let viewModel = PlacesViewModel(service: MockLocationsGetService(), coordinator: MockMainCoordinator())
+    let viewModel = PlacesViewModel(
+        service: MockLocationsGetService(),
+        coordinator: MockMainCoordinator()
+    )
     return PlacesView(viewModel: viewModel)
 }
