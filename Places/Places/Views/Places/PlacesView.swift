@@ -33,7 +33,10 @@ struct PlacesView: View {
         VStack {
             List {
                 if viewModel.placeItemViewModels.isEmpty == false {
-                    Section(header: Text(viewModel.locationsTitle)) {
+                    Section(
+                        header: Text(viewModel.locationsTitle)
+                        .accessibilityHint(viewModel.locationsTitleAccessibilityHint)
+                        ) {
                         ForEach(viewModel.placeItemViewModels) { vm in
                             Button(
                                 action: { viewModel.showLocation(vm)},
@@ -44,7 +47,10 @@ struct PlacesView: View {
                 }
                 
                 if viewModel.userDefinedPlaceItemViewModels.isEmpty == false {
-                    Section(header: Text(viewModel.userDefinedlocationsTitle)) {
+                    Section(
+                        header: Text(viewModel.userDefinedlocationsTitle)
+                        .accessibilityHint(viewModel.userDefinedlocationsTitleAccessibilityHint)
+                    ) {
                         ForEach(viewModel.userDefinedPlaceItemViewModels) { vm in
                             Button(
                                 action: { viewModel.showLocation(vm)},
@@ -54,17 +60,19 @@ struct PlacesView: View {
                     }
                 }
             }
-            .tint(.black)
+            .tint(.primary)
             Button(
                 action: { viewModel.showAddLocation() },
                 label: { Text(viewModel.addLocationsTitle).padding() }
             )
         }
+        .accessibilityHint(viewModel.listAccessibilityHint)
     }
     
     private var failureView: some View {
         VStack {
             Text(viewModel.errorMessage)
+                .accessibilityLabel(viewModel.errorMessageAccessibilityLabel)
             if viewModel.showRetryButton {
                 Button(
                     action: { Task { await viewModel.loadData() }},

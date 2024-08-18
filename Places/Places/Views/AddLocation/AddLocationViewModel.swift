@@ -10,10 +10,6 @@ import Foundation
 class AddLocationViewModel: ObservableObject {
     
     var title: String {
-        "Add location"
-    }
-    
-    var message: String {
         "Please add details below to add new location."
     }
     
@@ -75,6 +71,7 @@ class AddLocationViewModel: ObservableObject {
             addLocationError = .wrongLongitude
             return
         }
+        addLocationError = nil
         
         completion(Location(name: name, lat: Double(truncating: latNumber), long: Double(truncating: longNumber)))
         coordinator.dismiss()

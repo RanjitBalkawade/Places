@@ -10,6 +10,12 @@ import SwiftUI
 struct AddLocationView: View {
     
     @ObservedObject var viewModel: AddLocationViewModel
+    @AccessibilityFocusState private var focusedField: Field?
+    
+    enum Field: Hashable {
+        case text
+    }
+    
     @State var name = ""
     @State var latitude = ""
     @State var longitude = ""
@@ -18,8 +24,7 @@ struct AddLocationView: View {
         VStack(spacing: 24) {
             Text(viewModel.title)
                 .font(.headline)
-            Text(viewModel.message)
-                .font(.subheadline)
+                .multilineTextAlignment(.center)
             VStack(spacing: 8) {
                 TextField(viewModel.namePlaceHolder, text: $name)
                 TextField(viewModel.latitudePlaceHolder, text: $latitude)
@@ -32,6 +37,7 @@ struct AddLocationView: View {
                 Text(error.description)
                     .font(.subheadline)
                     .foregroundStyle(.red)
+                    .accessibilityFocused($focusedField, equals: .text)
             }
             Spacer()
             Button(viewModel.addButtonTitle) {
@@ -40,6 +46,7 @@ struct AddLocationView: View {
                     latitude: latitude,
                     longitude: longitude
                 )
+                focusedField = .text
             }
         }
         .padding(24)

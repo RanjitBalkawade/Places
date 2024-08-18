@@ -28,8 +28,20 @@ class PlacesViewModel: ObservableObject {
         "Locations"
     }
     
+    var locationsTitleAccessibilityHint: String {
+        "Below is the list's section, which has app provided locations."
+    }
+    
     var userDefinedlocationsTitle: String {
         "User defined locations"
+    }
+    
+    var userDefinedlocationsTitleAccessibilityHint: String {
+        "Below is the list's section, which has locations defined by you."
+    }
+    
+    var listAccessibilityHint: String {
+        "This is the list of locations. You can tap on any location to view it on a map of \(externalApp.name) app."
     }
     
     var addLocationsTitle: String {
@@ -43,13 +55,17 @@ class PlacesViewModel: ObservableObject {
     var loadingTitle: String {
         "Loading..."
     }
-
+    
     var errorMessage: String {
         guard let dataError = dataError as? DataError else {
             return "Something has gone wrong with the app. Please install the latest version of the app if available or contact us."
         }
         
         return dataError.errorMessage
+    }
+    
+    var errorMessageAccessibilityLabel: String {
+        "Error message, \(errorMessage)"
     }
     
     var externalApp: ExternalApp {
