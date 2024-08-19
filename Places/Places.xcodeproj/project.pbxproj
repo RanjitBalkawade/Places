@@ -169,12 +169,12 @@
 		CD4324CF2C6D16BF0030FE73 /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				CD9AE1F92C70890100373318 /* Components */,
-				CD4325012C6D181D0030FE73 /* Coordinator */,
+				CD4325002C6D18040030FE73 /* Factory */,
 				CD4325222C6D27770030FE73 /* Network */,
+				CD4325012C6D181D0030FE73 /* Coordinator */,
 				CD43251D2C6D26750030FE73 /* Model */,
 				CD4325062C6D18E10030FE73 /* Views */,
-				CD4325002C6D18040030FE73 /* Factory */,
+				CD9AE1F92C70890100373318 /* Components */,
 				CD4325282C6D29770030FE73 /* PreviewMocks */,
 				CD4324D02C6D16BF0030FE73 /* AppDelegate.swift */,
 				CD4325702C6E80330030FE73 /* Configuration.swift */,
@@ -188,13 +188,13 @@
 		CD4324E62C6D16C10030FE73 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
-				CD9AE21C2C713BAD00373318 /* SnapshotTests */,
-				CD9AE2122C712A9D00373318 /* Coordinator */,
-				CD9AE20B2C710B7000373318 /* ViewModels */,
-				CD9AE2022C70F0FD00373318 /* Components */,
+				CD4325752C6E8A250030FE73 /* Mocks */,
 				CD9AE1F52C6FB38A00373318 /* Fixtures */,
-				CD4325752C6E8A250030FE73 /* Mock */,
+				CD9AE21C2C713BAD00373318 /* SnapshotTests */,
+				CD9AE20B2C710B7000373318 /* ViewModels */,
 				CD4325722C6E89450030FE73 /* Network */,
+				CD9AE2122C712A9D00373318 /* Coordinator */,
+				CD9AE2022C70F0FD00373318 /* Components */,
 			);
 			path = PlacesTests;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		CD4325752C6E8A250030FE73 /* Mock */ = {
+		CD4325752C6E8A250030FE73 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				CD4325762C6E8A390030FE73 /* MockURLProtocol.swift */,
@@ -312,7 +312,7 @@
 				CD9AE2102C712A5C00373318 /* MockExternalAppCommunicator.swift */,
 				CD9AE2152C71390C00373318 /* MockNavigationController.swift */,
 			);
-			path = Mock;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		CD9AE1E82C6F533200373318 /* Parser */ = {

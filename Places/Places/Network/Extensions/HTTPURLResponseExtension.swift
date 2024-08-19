@@ -8,6 +8,9 @@
 import Foundation
 
 extension HTTPURLResponse {
+    
+    //MARK: - Internal properties
+    
     var hasInformationStatusCode: Bool {
         return 100...199 ~= self.statusCode
     }

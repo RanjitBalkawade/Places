@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct PlacesView: View {
+    
+    //MARK: - Internal properties
+    
     @ObservedObject var viewModel: PlacesViewModel
+    
+    //MARK: - Internal Views
     
     var body: some View {
         VStack {
@@ -28,6 +33,8 @@ struct PlacesView: View {
             await viewModel.loadData()
         }
     }
+    
+    //MARK: - Private Views
     
     private var successView: some View {
         VStack {

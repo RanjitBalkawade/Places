@@ -7,9 +7,13 @@
 
 import UIKit
 
-class MockMainCoordinator: MainCoordinatorProtocol {
+final class MockMainCoordinator: MainCoordinatorProtocol {
+    
+    //MARK: - Internal properties
     
     var navigationController: UINavigationController = UINavigationController()
+    
+    //MARK: - Internal methods
     
     func start() {}
     func dismiss() {}

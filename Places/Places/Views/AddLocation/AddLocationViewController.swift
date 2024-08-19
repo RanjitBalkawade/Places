@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-class AddLocationViewController: UIHostingController<AddLocationView> {
+final class AddLocationViewController: UIHostingController<AddLocationView> {
+    
+    //MARK: - Initializer
     
     init(_ viewModel: AddLocationViewModel) {
         super.init(rootView: AddLocationView(viewModel: viewModel))
@@ -17,6 +19,8 @@ class AddLocationViewController: UIHostingController<AddLocationView> {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

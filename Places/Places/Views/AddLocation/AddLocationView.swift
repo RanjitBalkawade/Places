@@ -9,16 +9,22 @@ import SwiftUI
 
 struct AddLocationView: View {
     
-    @ObservedObject var viewModel: AddLocationViewModel
-    @AccessibilityFocusState private var focusedField: Field?
-    
     enum Field: Hashable {
         case text
     }
     
-    @State var name = ""
-    @State var latitude = ""
-    @State var longitude = ""
+    //MARK: - Internal properties
+    
+    @ObservedObject var viewModel: AddLocationViewModel
+    
+    //MARK: - Private properties
+    
+    @State private var name = ""
+    @State private var latitude = ""
+    @State private var longitude = ""
+    @AccessibilityFocusState private var focusedField: Field?
+    
+    //MARK: - Internal Views
     
     var body: some View {
         VStack(spacing: 24) {
@@ -27,6 +33,7 @@ struct AddLocationView: View {
                 .multilineTextAlignment(.center)
             VStack(spacing: 8) {
                 TextField(viewModel.namePlaceHolder, text: $name)
+                    .keyboardType(.asciiCapable)
                 TextField(viewModel.latitudePlaceHolder, text: $latitude)
                     .keyboardType(.decimalPad)
                 TextField(viewModel.longitudePlaceHolder, text: $longitude)

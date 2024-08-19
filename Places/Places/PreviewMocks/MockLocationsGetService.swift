@@ -7,7 +7,9 @@
 
 import Foundation
 
-class MockLocationsGetService: LocationsGetServiceProtocol {
+final class MockLocationsGetService: LocationsGetServiceProtocol {
+    
+    //MARK: - Internal methods
     
     func getLocations() async throws -> [Location] {
         let location1 = Location(name: "Amsterdam", lat: 1.2333, long: 2.1233)

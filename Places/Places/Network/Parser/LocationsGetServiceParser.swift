@@ -13,11 +13,17 @@ protocol LocationsGetServiceParserProtocol {
 
 final class LocationsGetServiceParser {
     
+    //MARK: - Internal properties
+    
     var locations: [Location] {
         response.locations
     }
     
+    //MARK: - Private properties
+    
     private let response: LocationsGetResponse
+    
+    //MARK: - Initializer
     
     init(_ response: LocationsGetResponse) {
         self.response = response

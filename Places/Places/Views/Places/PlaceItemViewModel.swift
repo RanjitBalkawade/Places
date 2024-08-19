@@ -13,7 +13,9 @@ extension PlaceItemViewModel: Identifiable {
     }
 }
 
-class PlaceItemViewModel: ObservableObject {
+final class PlaceItemViewModel: ObservableObject {
+    
+    //MARK: - Internal properties
     
     var name: String {
         location.name ?? "Unknown location"
@@ -27,7 +29,11 @@ class PlaceItemViewModel: ObservableObject {
         location.long
     }
     
+    //MARK: - Private properties
+    
     private let location: Location
+    
+    //MARK: - Initializer
     
     init(location: Location) {
         self.location = location

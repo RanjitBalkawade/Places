@@ -10,7 +10,7 @@ import UIKit
 @testable
 import Places
 
-class MockMainCoordinator: MainCoordinatorProtocol {
+final class MockMainCoordinator: MainCoordinatorProtocol {
     
     var navigationController: UINavigationController = UINavigationController()
     
@@ -36,6 +36,7 @@ class MockMainCoordinator: MainCoordinatorProtocol {
         showAddLocationCallCount += 1
         showAddLocationHandler?(completion)
     }
+    
     private(set) var showLocationCallCount = 0
     var showLocationHandler: ((ExternalApp, Double, Double, ((Bool) -> Void)?) -> Void)?
     func showLocation(app: ExternalApp, latitude: Double, longitude: Double, completionHandler: ((Bool) -> Void)?) {

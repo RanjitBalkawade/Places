@@ -8,13 +8,19 @@
 
 import UIKit
 
-class Factory {
-        
+final class Factory {
+    
+    //MARK: - Internal methods
+    
     static func mainCoordinator() -> MainCoordinatorProtocol {
-        MainCoordinator(navigationController: UINavigationController(), externalAppCommunicator: ExternalAppCommunicator())
+        MainCoordinator(navigationController: UINavigationController(), externalAppCommunicator: Self.externalAppCommunicator())
     }
     
     static func locationsGetService() -> LocationsGetServiceProtocol {
         LocationsGetService(session: URLSession.shared, urlString: Configuration.API.baseUrl)
+    }
+    
+    static func externalAppCommunicator() -> ExternalAppCommunicator {
+        ExternalAppCommunicator()
     }
 }

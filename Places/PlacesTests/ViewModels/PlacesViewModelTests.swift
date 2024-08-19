@@ -10,7 +10,7 @@ import XCTest
 
 final class PlacesViewModelTests: XCTestCase {
     
-    var viewModel: PlacesViewModel!
+    var sut: PlacesViewModel!
     var mockService: MockLocationsGetService!
     var mockCoordinator: MockMainCoordinator!
     
@@ -18,11 +18,11 @@ final class PlacesViewModelTests: XCTestCase {
         super.setUp()
         mockService = MockLocationsGetService()
         mockCoordinator = MockMainCoordinator()
-        viewModel = PlacesViewModel(service: mockService, coordinator: mockCoordinator)
+        sut = PlacesViewModel(service: mockService, coordinator: mockCoordinator)
     }
     
     override func tearDown() {
-        viewModel = nil
+        sut = nil
         mockService = nil
         mockCoordinator = nil
         super.tearDown()
@@ -32,11 +32,11 @@ final class PlacesViewModelTests: XCTestCase {
         //Given
         self.mockService.getLocationsHandler = {
             //Then
-            XCTAssertEqual(self.viewModel.viewState, .loading)
+            XCTAssertEqual(self.sut.viewState, .loading)
             return LocationsFixture.locations
         }
         //When
-        await viewModel.loadData()
+        await sut.loadData()
     }
     
     func testPlacesViewModel_WhenLoadDataSucceeds_shouldReturnSuccessViewState() async {
@@ -45,11 +45,11 @@ final class PlacesViewModelTests: XCTestCase {
         mockService.getLocationsHandler = { LocationsFixture.locations }
         
         // When
-        await viewModel.loadData()
+        await sut.loadData()
         
         // Then
-        XCTAssertEqual(viewModel.viewState, .successView)
-        XCTAssertEqual(viewModel.placeItemViewModels.count, expectedLocations.count)
+        XCTAssertEqual(sut.viewState, .successView)
+        XCTAssertEqual(sut.placeItemViewModels.count, expectedLocations.count)
         XCTAssertEqual(mockService.getLocationsCount, 1)
     }
     
@@ -62,11 +62,11 @@ final class PlacesViewModelTests: XCTestCase {
         }
         
         // When
-        viewModel.showAddLocation()
+        sut.showAddLocation()
         
         // Then
-        XCTAssertEqual(viewModel.userDefinedPlaceItemViewModels.count, 1)
-        XCTAssertEqual(viewModel.userDefinedPlaceItemViewModels.first?.latitude, newLocation.lat)
+        XCTAssertEqual(sut.userDefinedPlaceItemViewModels.count, 1)
+        XCTAssertEqual(sut.userDefinedPlaceItemViewModels.first?.latitude, newLocation.lat)
         XCTAssertEqual(mockCoordinator.showAddLocationCallCount, 1)
     }
     
@@ -80,7 +80,7 @@ final class PlacesViewModelTests: XCTestCase {
         }
         
         // When
-        viewModel.showLocation(placeItemViewModel)
+        sut.showLocation(placeItemViewModel)
         
         // Then
         XCTAssertEqual(mockCoordinator.showLocationCallCount, 1)
@@ -97,7 +97,7 @@ final class PlacesViewModelTests: XCTestCase {
         }
         
         // When
-        viewModel.showLocation(placeItemViewModel)
+        sut.showLocation(placeItemViewModel)
         
         // Then
         XCTAssertEqual(mockCoordinator.showLocationCallCount, 1)
@@ -110,13 +110,13 @@ final class PlacesViewModelTests: XCTestCase {
         mockService.dataError = .server
         
         // When
-        await viewModel.loadData()
+        await sut.loadData()
         
         // Then
-        XCTAssertEqual(viewModel.viewState, .failureView)
-        XCTAssertNotNil(viewModel.errorMessage)
+        XCTAssertEqual(sut.viewState, .failureView)
+        XCTAssertNotNil(sut.errorMessage)
         XCTAssertEqual(mockService.getLocationsCount, 1)
-        XCTAssertTrue(viewModel.showRetryButton)
+        XCTAssertTrue(sut.showRetryButton)
     }
     
     func testPlacesViewModel_LoadDataFailureWithClientError_ShouldShowFailureViewWithoutRetryButton() async {
@@ -125,13 +125,13 @@ final class PlacesViewModelTests: XCTestCase {
         mockService.dataError = .client
         
         // When
-        await viewModel.loadData()
+        await sut.loadData()
         
         // Then
-        XCTAssertEqual(viewModel.viewState, .failureView)
-        XCTAssertNotNil(viewModel.errorMessage)
+        XCTAssertEqual(sut.viewState, .failureView)
+        XCTAssertNotNil(sut.errorMessage)
         XCTAssertEqual(mockService.getLocationsCount, 1)
-        XCTAssertTrue(viewModel.showRetryButton == false)
+        XCTAssertTrue(sut.showRetryButton == false)
     }
     
     func testPlacesViewModel_LoadDataFailureWithGeneralError_ShouldShowFailureViewWithRetryButton() async {
@@ -140,13 +140,13 @@ final class PlacesViewModelTests: XCTestCase {
         mockService.dataError = .general
         
         // When
-        await viewModel.loadData()
+        await sut.loadData()
         
         // Then
-        XCTAssertEqual(viewModel.viewState, .failureView)
-        XCTAssertNotNil(viewModel.errorMessage)
+        XCTAssertEqual(sut.viewState, .failureView)
+        XCTAssertNotNil(sut.errorMessage)
         XCTAssertEqual(mockService.getLocationsCount, 1)
-        XCTAssertTrue(viewModel.showRetryButton)
+        XCTAssertTrue(sut.showRetryButton)
     }
     
     func testPlacesViewModel_LoadDataFailureWithNetworkConnectivityError_ShouldShowFailureViewWithRetryButton() async {
@@ -155,13 +155,13 @@ final class PlacesViewModelTests: XCTestCase {
         mockService.dataError = .internetConnectivity
         
         // When
-        await viewModel.loadData()
+        await sut.loadData()
         
         // Then
-        XCTAssertEqual(viewModel.viewState, .failureView)
-        XCTAssertNotNil(viewModel.errorMessage)
+        XCTAssertEqual(sut.viewState, .failureView)
+        XCTAssertNotNil(sut.errorMessage)
         XCTAssertEqual(mockService.getLocationsCount, 1)
-        XCTAssertTrue(viewModel.showRetryButton)
+        XCTAssertTrue(sut.showRetryButton)
     }
     
     func testPlacesViewModel_LoadDataFailureWithTimeoutError_ShouldShowFailureViewWithRetryButton() async {
@@ -170,13 +170,13 @@ final class PlacesViewModelTests: XCTestCase {
         mockService.dataError = .timeout
         
         // When
-        await viewModel.loadData()
+        await sut.loadData()
         
         // Then
-        XCTAssertEqual(viewModel.viewState, .failureView)
-        XCTAssertNotNil(viewModel.errorMessage)
+        XCTAssertEqual(sut.viewState, .failureView)
+        XCTAssertNotNil(sut.errorMessage)
         XCTAssertEqual(mockService.getLocationsCount, 1)
-        XCTAssertTrue(viewModel.showRetryButton)
+        XCTAssertTrue(sut.showRetryButton)
     }
     
 }

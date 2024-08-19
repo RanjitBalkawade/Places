@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MockNavigationController: UINavigationController {
+final class MockNavigationController: UINavigationController {
+    
+    //MARK: - Internal properties
     
     var pushViewControllerCalled = false
     var pushedViewController: UIViewController?
@@ -16,6 +18,8 @@ class MockNavigationController: UINavigationController {
     
     var presentCalled = false
     var presentedVC: UIViewController?
+    
+    //MARK: - Life cycle methods
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         pushViewControllerCalled = true

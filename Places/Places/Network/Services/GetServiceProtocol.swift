@@ -16,6 +16,9 @@ protocol GetServiceProtocol {
 }
 
 extension GetServiceProtocol {
+    
+    //MARK: - Internal methods
+    
     func execute(urlRequest: URLRequest) async throws -> T {
         do {
             let (data, response) = try await session.data(for: urlRequest)

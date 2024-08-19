@@ -9,11 +9,11 @@ import UIKit
 
 protocol MainCoordinatorProtocol {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     var navigationController: UINavigationController { get set }
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     func start()
     func dismiss()

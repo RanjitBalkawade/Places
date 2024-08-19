@@ -8,13 +8,15 @@
 import Foundation
 import SwiftUI
 
-class PlacesViewModel: ObservableObject {
+final class PlacesViewModel: ObservableObject {
     
     enum ViewState {
         case loading
         case successView
         case failureView
     }
+    
+    //MARK: - Internal properties
     
     var alertTitle: String {
         "\(externalApp.name) is not installed on your device."
@@ -90,11 +92,15 @@ class PlacesViewModel: ObservableObject {
     
     @Published private(set) var viewState: ViewState = .loading
     
+    //MARK: - Private properties
+    
     private var locations: [Location] = []
     private var userDefinedLocations: [Location] = []
     private var dataError: Error?
     private let service: LocationsGetServiceProtocol
     private let coordinator: MainCoordinatorProtocol
+    
+    //MARK: - Initializer
     
     init(service: LocationsGetServiceProtocol, coordinator: MainCoordinatorProtocol) {
         self.service = service
@@ -153,6 +159,8 @@ class PlacesViewModel: ObservableObject {
             }
         }
     }
+    
+    //MARK: - Private methods
     
     private func getPlaceItemViewModels(locations: [Location]) -> [PlaceItemViewModel] {
         locations.filter {

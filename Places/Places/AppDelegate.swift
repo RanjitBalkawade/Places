@@ -10,8 +10,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    //MARK: - Internal properties
+    
     var window: UIWindow?
     var mainCoordinator: MainCoordinatorProtocol?
+    
+    //MARK: - Life cycle methods
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

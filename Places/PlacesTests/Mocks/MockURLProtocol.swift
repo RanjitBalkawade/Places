@@ -7,11 +7,16 @@
 
 import Foundation
 
-class MockURLProtocol: URLProtocol {
+final class MockURLProtocol: URLProtocol {
+    
+    //MARK: - Internal properties
     
     static var stubResponseData: Data?
     static var response: HTTPURLResponse?
     static var error: Error?
+    
+    
+    //MARK: - Life cycle methods
     
     override class func canInit(with request: URLRequest) -> Bool {
         return true

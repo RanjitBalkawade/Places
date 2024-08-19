@@ -8,6 +8,9 @@
 import Foundation
 
 extension NSError {
+    
+    //MARK: - Internal properties
+    
     func converToDataError() -> DataError {
         switch code {
             case NSURLErrorNotConnectedToInternet, NSURLErrorCannotConnectToHost, NSURLErrorNetworkConnectionLost, NSURLErrorDNSLookupFailed:

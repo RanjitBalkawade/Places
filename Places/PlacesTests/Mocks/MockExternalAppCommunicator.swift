@@ -8,7 +8,9 @@
 import Foundation
 @testable import Places
 
-class MockExternalAppCommunicator: ExternalAppCommunicatorProtocol {
+final class MockExternalAppCommunicator: ExternalAppCommunicatorProtocol {
+    
+    //MARK: - Internal properties
     
     var showInstallLinkCalled = false
     var passedApp: ExternalApp?
@@ -17,6 +19,8 @@ class MockExternalAppCommunicator: ExternalAppCommunicatorProtocol {
     var passedLatitude: Double?
     var passedLongitude: Double?
     var passedCompletionHandler: ((Bool) -> Void)?
+    
+    //MARK: - Internal methods
     
     func showInstallLink(app: ExternalApp) {
         showInstallLinkCalled = true

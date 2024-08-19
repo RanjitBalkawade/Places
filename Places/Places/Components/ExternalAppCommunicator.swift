@@ -16,6 +16,8 @@ protocol ExternalAppCommunicatorProtocol {
 enum ExternalApp {
     case wikipedia
     
+    //MARK: - Internal properties
+    
     var name: String {
         switch self {
             case .wikipedia:
@@ -37,13 +39,19 @@ enum ExternalApp {
     }
 }
 
-class ExternalAppCommunicator: ExternalAppCommunicatorProtocol {
+final class ExternalAppCommunicator: ExternalAppCommunicatorProtocol {
+    
+    //MARK: - Private properties
     
     private let application: UIApplicationOpenAppProtocol
+    
+    //MARK: - Initializer
     
     init(application: UIApplicationOpenAppProtocol = UIApplication.shared) {
         self.application = application
     }
+    
+    //MARK: - Internal methods
     
     func openPlaces(app: ExternalApp, latitude: Double, longitude: Double, completionHandler: ((Bool) -> Void)?) {
         var urlComponents = URLComponents()

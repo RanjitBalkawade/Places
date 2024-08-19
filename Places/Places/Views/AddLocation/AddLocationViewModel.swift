@@ -7,7 +7,9 @@
 
 import Foundation
 
-class AddLocationViewModel: ObservableObject {
+final class AddLocationViewModel: ObservableObject {
+    
+    //MARK: - Internal properties
     
     var title: String {
         "Please add details below to add new location."
@@ -29,8 +31,7 @@ class AddLocationViewModel: ObservableObject {
         "Add"
     }
     
-    @Published private(set) var addLocationError: AddLocationError?
-    var completion: ((Location) -> Void)
+    //MARK: - Private properties
     
     private lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -39,13 +40,19 @@ class AddLocationViewModel: ObservableObject {
         return formatter
     }()
     
+    @Published private(set) var addLocationError: AddLocationError?
+    private var completion: ((Location) -> Void)
     private let coordinator: MainCoordinatorProtocol
+    
+    //MARK: - Initializer
     
     init(coordinator: MainCoordinatorProtocol, completion: @escaping ((Location) -> Void)) {
         self.coordinator = coordinator
         self.completion = completion
     }
 
+    //MARK: - Internal methods
+    
     func addLocation(name: String, latitude: String, longitude: String) {
         guard name.isEmpty == false else {
             addLocationError = .NameNotAdded
@@ -57,13 +64,13 @@ class AddLocationViewModel: ObservableObject {
             return
         }
         
-        guard longitude.isEmpty == false else {
-            addLocationError = .LongitudeNotAdded
+        guard let latNumber = numberFormatter.number(from: latitude) else {
+            addLocationError = .wrongLatitude
             return
         }
         
-        guard let latNumber = numberFormatter.number(from: latitude) else {
-            addLocationError = .wrongLatitude
+        guard longitude.isEmpty == false else {
+            addLocationError = .LongitudeNotAdded
             return
         }
         
@@ -79,6 +86,9 @@ class AddLocationViewModel: ObservableObject {
 }
 
 extension AddLocationError {
+    
+    //MARK: - Internal properties
+    
     var description: String {
         switch self {
             case .NameNotAdded:

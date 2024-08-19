@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MainCoordinator: MainCoordinatorProtocol {
+final class MainCoordinator: MainCoordinatorProtocol {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     var navigationController: UINavigationController
     
@@ -22,7 +22,7 @@ class MainCoordinator: MainCoordinatorProtocol {
         self.externalAppCommunicator = externalAppCommunicator
     }
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     func start() {
         let viewModel = PlacesViewModel(service: Factory.locationsGetService(), coordinator: self)

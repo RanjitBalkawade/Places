@@ -8,14 +8,17 @@
 import Foundation
 @testable import Places
 
-
-class MockLocationsGetService: LocationsGetServiceProtocol {
+final class MockLocationsGetService: LocationsGetServiceProtocol {
     
-    private(set) var getLocationsCount = 0
+    //MARK: - Internal properties
+    
     var getLocationsHandler: (() -> [Places.Location])?
     var loading: (() -> Void)?
     var getLocationsShouldReturnError = false
     var dataError: DataError?
+    private(set) var getLocationsCount = 0
+    
+    //MARK: - Internal methods
     
     func getLocations() async throws -> [Places.Location] {
         getLocationsCount += 1
