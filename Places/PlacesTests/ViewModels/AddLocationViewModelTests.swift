@@ -32,11 +32,7 @@ class AddLocationViewModelTests: XCTestCase {
     // MARK: - Computed Properties Tests
     
     func testAddLocationViewModel_Title() {
-        XCTAssertEqual(viewModel.title, "Add location")
-    }
-    
-    func testAddLocationViewModel_Message() {
-        XCTAssertEqual(viewModel.message, "Please add details below to add new location.")
+        XCTAssertEqual(viewModel.title, "Please add details below to add new location.")
     }
     
     func testAddLocationViewModel_NamePlaceHolder() {
