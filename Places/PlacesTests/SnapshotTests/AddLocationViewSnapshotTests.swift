@@ -12,7 +12,7 @@ import SnapshotTesting
 @testable import Places
 
 class AddLocationViewSnapshotTests: XCTestCase {
-    func testMainView_InitialState() {
+    func testAddLocationView_InitialState() {
         let mockCoordinator = MockMainCoordinator()
         
         let viewModel = AddLocationViewModel(coordinator: mockCoordinator) { _ in }
@@ -22,7 +22,7 @@ class AddLocationViewSnapshotTests: XCTestCase {
         assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
     }
     
-    func testMainView_EmptyNameError() {
+    func testAddLocationView_EmptyNameError() {
         let mockCoordinator = MockMainCoordinator()
         
         let viewModel = AddLocationViewModel(coordinator: mockCoordinator) { _ in }
@@ -33,7 +33,7 @@ class AddLocationViewSnapshotTests: XCTestCase {
         assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
     }
     
-    func testMainView_EmptyLatitude() {
+    func testAddLocationView_EmptyLatitude() {
         let mockCoordinator = MockMainCoordinator()
         
         let viewModel = AddLocationViewModel(coordinator: mockCoordinator) { _ in }
@@ -44,7 +44,7 @@ class AddLocationViewSnapshotTests: XCTestCase {
         assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
     }
     
-    func testMainView_EmptyLongitude() {
+    func testAddLocationView_EmptyLongitude() {
         let mockCoordinator = MockMainCoordinator()
         
         let viewModel = AddLocationViewModel(coordinator: mockCoordinator) { _ in }
@@ -55,7 +55,7 @@ class AddLocationViewSnapshotTests: XCTestCase {
         assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
     }
     
-    func testMainView_InvalidLatitude() {
+    func testAddLocationView_InvalidLatitude() {
         let mockCoordinator = MockMainCoordinator()
         
         let viewModel = AddLocationViewModel(coordinator: mockCoordinator) { _ in }
@@ -66,7 +66,7 @@ class AddLocationViewSnapshotTests: XCTestCase {
         assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
     }
     
-    func testMainView_InvalidLongitude() {
+    func testAddLocationView_InvalidLongitude() {
         let mockCoordinator = MockMainCoordinator()
         
         let viewModel = AddLocationViewModel(coordinator: mockCoordinator) { _ in }

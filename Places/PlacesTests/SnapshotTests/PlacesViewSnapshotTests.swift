@@ -12,8 +12,8 @@ import SnapshotTesting
 
 @testable import Places
 
-class MainViewSnapshotTests: XCTestCase {
-    func testMainView_SuccessState() {
+class PlacesViewSnapshotTests: XCTestCase {
+    func testPlacesView_SuccessState() {
         let mockService = MockLocationsGetService()
         let mockCoordinator = MockMainCoordinator()
         
@@ -32,7 +32,7 @@ class MainViewSnapshotTests: XCTestCase {
         }
     }
     
-    func testMainView_FailureState() {
+    func testPlacesView_FailureState() {
         let mockService = MockLocationsGetService()
         let mockCoordinator = MockMainCoordinator()
         
@@ -51,7 +51,7 @@ class MainViewSnapshotTests: XCTestCase {
         }
     }
     
-    func testMainView_LoadingState() {
+    func testPlacesView_LoadingState() {
         let mockService = MockLocationsGetService()
         let mockCoordinator = MockMainCoordinator()
         
