@@ -13,14 +13,18 @@ final class Factory {
     //MARK: - Internal methods
     
     static func mainCoordinator() -> MainCoordinatorProtocol {
-        MainCoordinator(navigationController: UINavigationController(), externalAppCommunicator: Self.externalAppCommunicator())
+        MainCoordinator(
+            navigationController: UINavigationController(),
+            locationsGetService: Self.locationsGetService(),
+            externalAppCommunicator: Self.externalAppCommunicator()
+        )
     }
     
     static func locationsGetService() -> LocationsGetServiceProtocol {
         LocationsGetService(session: URLSession.shared, urlString: Configuration.API.baseUrl)
     }
     
-    static func externalAppCommunicator() -> ExternalAppCommunicator {
+    static func externalAppCommunicator() -> ExternalAppCommunicatorProtocol {
         ExternalAppCommunicator()
     }
 }

@@ -14,18 +14,24 @@ final class MainCoordinator: MainCoordinatorProtocol {
     var navigationController: UINavigationController
     
     private let externalAppCommunicator: ExternalAppCommunicatorProtocol
+    private let locationsGetService: LocationsGetServiceProtocol
     
     // MARK: - Initializers
     
-    init(navigationController: UINavigationController, externalAppCommunicator: ExternalAppCommunicatorProtocol) {
+    init(
+        navigationController: UINavigationController,
+        locationsGetService: LocationsGetServiceProtocol,
+        externalAppCommunicator: ExternalAppCommunicatorProtocol
+    ) {
         self.navigationController = navigationController
+        self.locationsGetService = locationsGetService
         self.externalAppCommunicator = externalAppCommunicator
     }
     
     // MARK: - Internal methods
     
     func start() {
-        let viewModel = PlacesViewModel(service: Factory.locationsGetService(), coordinator: self)
+        let viewModel = PlacesViewModel(service: locationsGetService, coordinator: self)
         navigationController.pushViewController(PlacesViewController(viewModel), animated: false)
     }
     

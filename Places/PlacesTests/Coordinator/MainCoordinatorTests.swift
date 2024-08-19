@@ -13,18 +13,25 @@ class MainCoordinatorTests: XCTestCase {
     var sut: MainCoordinator!
     var mockNavigationController: MockNavigationController!
     var mockExternalAppCommunicator: MockExternalAppCommunicator!
+    var mockLocationsGetService: MockLocationsGetService!
     
     override func setUp() {
         super.setUp()
         mockNavigationController = MockNavigationController()
         mockExternalAppCommunicator = MockExternalAppCommunicator()
-        sut = MainCoordinator(navigationController: mockNavigationController, externalAppCommunicator: mockExternalAppCommunicator)
+        mockLocationsGetService = MockLocationsGetService()
+        sut = MainCoordinator(
+            navigationController: mockNavigationController,
+            locationsGetService: mockLocationsGetService,
+            externalAppCommunicator: mockExternalAppCommunicator
+        )
     }
     
     override func tearDown() {
         sut = nil
         mockNavigationController = nil
         mockExternalAppCommunicator = nil
+        mockLocationsGetService = nil
         super.tearDown()
     }
     
