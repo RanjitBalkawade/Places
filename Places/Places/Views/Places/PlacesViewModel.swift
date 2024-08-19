@@ -141,26 +141,23 @@ final class PlacesViewModel: ObservableObject {
     //MARK: - Internal methods
     
     func loadData() async {
-        await MainActor.run {
-            viewState = .loading
-        }
-        
+        await updateUI(for: .loading)
         do {
             locations = try await service.getLocations()
-            
-            await MainActor.run {
-                viewState = .successView
-            }
+            await updateUI(for: .successView)
         }
         catch {
-            await MainActor.run {
-                dataError = error
-                viewState = .failureView
-            }
+            dataError = error
+            await updateUI(for: .failureView)
         }
     }
     
     //MARK: - Private methods
+    
+    @MainActor
+    private func updateUI(for state: ViewState) {
+        viewState = state
+    }
     
     private func getPlaceItemViewModels(locations: [Location]) -> [PlaceItemViewModel] {
         locations.filter {
