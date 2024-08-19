@@ -14,11 +14,11 @@ class LocationsGetServiceTests: XCTestCase {
     let urlString = "https://www.haha.com"
     
     override func setUp() {
-        self.sut = LocationsGetService(session: MockURLProtocol.getSessionWithMockURLProtocol(), urlString: self.urlString)
+        sut = LocationsGetService(session: MockURLProtocol.getSessionWithMockURLProtocol(), urlString: urlString)
     }
     
     override func tearDown() {
-        self.sut = nil
+        sut = nil
         MockURLProtocol.stubResponseData = nil
         MockURLProtocol.error = nil
         MockURLProtocol.response = nil
@@ -29,14 +29,14 @@ class LocationsGetServiceTests: XCTestCase {
         MockURLProtocol.stubResponseData = "{\"locations\":[{\"name\": \"Amsterdam\",\"lat\": 52.3547498,\"long\": 4.8339215}]}".data(using: .utf8)
         
         MockURLProtocol.response = HTTPURLResponse(
-            url: URL(string: self.urlString)!,
+            url: URL(string: urlString)!,
             statusCode: 200,
             httpVersion: nil,
             headerFields: nil
         )!
         
         // When
-        let locations = try await self.sut.getLocations()
+        let locations = try await sut.getLocations()
         
         // Then
         XCTAssertEqual(locations.count, 1, "should have return data")
@@ -47,7 +47,7 @@ class LocationsGetServiceTests: XCTestCase {
         // Given
         MockURLProtocol.stubResponseData = "{invalid json}".data(using: .utf8)
         MockURLProtocol.response = HTTPURLResponse(
-            url: URL(string: self.urlString)!,
+            url: URL(string: urlString)!,
             statusCode: 200,
             httpVersion: nil,
             headerFields: nil
@@ -55,7 +55,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -90,7 +90,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -110,7 +110,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -130,7 +130,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -150,7 +150,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -165,7 +165,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -180,7 +180,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {
@@ -195,7 +195,7 @@ class LocationsGetServiceTests: XCTestCase {
         
         // When
         do {
-            _ = try await self.sut.getLocations()
+            _ = try await sut.getLocations()
             XCTFail("Expected to fail")
         }
         catch {

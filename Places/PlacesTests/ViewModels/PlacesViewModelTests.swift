@@ -30,7 +30,7 @@ final class PlacesViewModelTests: XCTestCase {
     
     func testMainViewModel_WhenLoadingData_shouldReturnLoadingViewState() async {
         //Given
-        self.mockService.getLocationsHandler = {
+        mockService.getLocationsHandler = {
             //Then
             XCTAssertEqual(self.sut.viewState, .loading)
             return LocationsFixture.locations

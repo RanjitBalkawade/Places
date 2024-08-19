@@ -27,18 +27,16 @@ extension GetServiceProtocol {
             }
             
             guard httpResponse.hasSuccessStatusCode else {
-                print("Request failed with error code: \(httpResponse.statusCode) description: \(httpResponse.description)")
+                printError(code: httpResponse.statusCode, description: httpResponse.description)
                 throw httpResponse.convertToDataError()
             }
             
             do {
-                let modelData = try JSONDecoder().decode(T.self, from: data)
-                return modelData
+                return try JSONDecoder().decode(T.self, from: data)
             }
             catch {
                 throw DataError.decoding
             }
-            
         }
         catch let dataError as DataError {
             throw dataError
@@ -47,8 +45,14 @@ extension GetServiceProtocol {
             guard let nsError = error as NSError? else {
                 throw DataError.unknown
             }
-            print("Request failed with error code: \(nsError.code) description: \(nsError.localizedDescription)")
+            printError(code: nsError.code, description: nsError.localizedDescription)
             throw nsError.converToDataError()
         }
+    }
+    
+    //MARK: - Private methods
+    
+    private func printError(code: Int, description: String) {
+        print("Request failed with error code: \(code) description: \(description)")
     }
 }

@@ -61,6 +61,6 @@ final class MainCoordinator: MainCoordinatorProtocol {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelHandler)
         alertController.addAction(cancelAction)
 
-        self.navigationController.present(alertController, animated: true, completion: nil)
+        navigationController.present(alertController, animated: true, completion: nil)
     }
 }

@@ -17,8 +17,8 @@ class AddLocationViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockCoordinator = MockMainCoordinator()
-        sut = AddLocationViewModel(coordinator: mockCoordinator) { location in
-            self.completionLocation = location
+        sut = AddLocationViewModel(coordinator: mockCoordinator) { [weak self] location in
+            self?.completionLocation = location
         }
     }
     

@@ -29,16 +29,16 @@ final class MockURLProtocol: URLProtocol {
     override func startLoading() {
         
         if let response = MockURLProtocol.response {
-            self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
         }
         
         if let error = MockURLProtocol.error {
-            self.client?.urlProtocol(self, didFailWithError: error)
+            client?.urlProtocol(self, didFailWithError: error)
         } else {
-            self.client?.urlProtocol(self, didLoad: MockURLProtocol.stubResponseData ?? Data())
+            client?.urlProtocol(self, didLoad: MockURLProtocol.stubResponseData ?? Data())
         }
         
-        self.client?.urlProtocolDidFinishLoading(self)
+        client?.urlProtocolDidFinishLoading(self)
     }
     
     override func stopLoading() { }
