@@ -73,7 +73,7 @@ final class ExternalAppCommunicator: ExternalAppCommunicatorProtocol {
         guard let url = URL(string: app.installLink) else {
             return
         }
-        return application.open(url, options: [:], completionHandler: {_ in })
+        application.open(url, options: [:], completionHandler: {_ in })
     }
     
 }

@@ -39,33 +39,17 @@ struct PlacesView: View {
     private var successView: some View {
         VStack {
             List {
-                if viewModel.placeItemViewModels.isEmpty == false {
-                    Section(
-                        header: Text(viewModel.locationsTitle)
-                        .accessibilityHint(viewModel.locationsTitleAccessibilityHint)
-                        ) {
-                        ForEach(viewModel.placeItemViewModels) { vm in
-                            Button(
-                                action: { viewModel.showLocation(vm)},
-                                label: { Text(vm.name) }
-                            )
-                        }
-                    }
-                }
+                locationsSection(
+                    title: viewModel.locationsTitle,
+                    accessibilityHint: viewModel.locationsTitleAccessibilityHint,
+                    placeItemViewModels: viewModel.placeItemViewModels
+                )
                 
-                if viewModel.userDefinedPlaceItemViewModels.isEmpty == false {
-                    Section(
-                        header: Text(viewModel.userDefinedlocationsTitle)
-                        .accessibilityHint(viewModel.userDefinedlocationsTitleAccessibilityHint)
-                    ) {
-                        ForEach(viewModel.userDefinedPlaceItemViewModels) { vm in
-                            Button(
-                                action: { viewModel.showLocation(vm)},
-                                label: { Text(vm.name) }
-                            )
-                        }
-                    }
-                }
+                locationsSection(
+                    title: viewModel.userDefinedlocationsTitle,
+                    accessibilityHint: viewModel.userDefinedlocationsTitleAccessibilityHint,
+                    placeItemViewModels: viewModel.userDefinedPlaceItemViewModels
+                )
             }
             .tint(.primary)
             Button(
@@ -92,6 +76,27 @@ struct PlacesView: View {
     
     private var loadingView: some View {
         Text(viewModel.loadingTitle)
+    }
+    
+    private func locationsSection(
+        title: String,
+        accessibilityHint: String,
+        placeItemViewModels: [PlaceItemViewModel]
+    ) -> some View {
+        Group {
+            if placeItemViewModels.isEmpty == false {
+                Section(
+                    header: Text(title)
+                        .accessibilityHint(accessibilityHint)
+                ) {
+                    ForEach(placeItemViewModels) { vm in
+                        Button(action: { viewModel.showLocation(vm) }) {
+                            Text(vm.name)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
