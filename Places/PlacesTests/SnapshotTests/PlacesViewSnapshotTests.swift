@@ -24,12 +24,15 @@ class PlacesViewSnapshotTests: XCTestCase {
         let view = PlacesView(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
         
+        let expectation = XCTestExpectation(description: "Async task")
         Task {
             await viewModel.loadData()
             await MainActor.run {
                 assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 3.0)
     }
     
     func testPlacesView_FailureState() {
@@ -43,12 +46,15 @@ class PlacesViewSnapshotTests: XCTestCase {
         let view = PlacesView(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
         
+        let expectation = XCTestExpectation(description: "Async task")
         Task {
             await viewModel.loadData()
             await MainActor.run {
                 assertSnapshot(of: viewController, as: .image(on: .iPhone13), record: false)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 3.0)
     }
     
     func testPlacesView_LoadingState() {
