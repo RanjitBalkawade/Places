@@ -7,15 +7,11 @@
 
 import Foundation
 
-extension PlaceItemViewModel: Identifiable {
-    var id: String {
-        UUID().uuidString
-    }
-}
-
-final class PlaceItemViewModel: ObservableObject {
+final class PlaceItemViewModel: ObservableObject, Identifiable {
     
     //MARK: - Internal properties
+    
+    let id = UUID().uuidString
     
     var name: String {
         location.name ?? "Unknown location"
